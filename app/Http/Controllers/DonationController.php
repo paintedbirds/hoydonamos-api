@@ -14,7 +14,7 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        return Donation::all();
     }
 
     /**
@@ -35,7 +35,13 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'tags' => 'required',
+        ]);
+
+        return Donation::create($request->all());
     }
 
     /**
@@ -44,9 +50,9 @@ class DonationController extends Controller
      * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function show(Donation $donation)
+    public function show($id)
     {
-        //
+        return Donation::find($id);
     }
 
     /**
@@ -67,9 +73,11 @@ class DonationController extends Controller
      * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donation $donation)
+    public function update(Request $request, $id)
     {
-        //
+        $donation = Donation::find($id);
+        $donation->update($request->all());
+        return $donation;
     }
 
     /**
@@ -78,8 +86,18 @@ class DonationController extends Controller
      * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donation $donation)
+    public function destroy($id)
     {
-        //
+        return Donation::destroy($id);
+    }
+    /**
+     * Search for a name.
+     *
+     * @param  str $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search($name)
+    {
+        return Donation::where('name', 'like','%'.$name.'%')->get();
     }
 }
