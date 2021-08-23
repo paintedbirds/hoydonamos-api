@@ -12,6 +12,5 @@ class Donation extends Model
     protected $fillable = [
         'name',
         'description',
-        'tags'
     ];
 }

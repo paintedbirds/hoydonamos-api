@@ -19,24 +19,22 @@ use App\Http\Controllers\AuthController;
 Route::resource('donations', DonationController::class);
 */
 
-//Public Routes
-Route::get('/donations', [DonationController::class, 'index']);
-Route::get('/donations/{id}', [DonationController::class, 'show']);
-Route::get('/donations/search/{name}', [DonationController::class, 'search']);
-
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 
 // Protected Routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/donations', [DonationController::class, 'index']);
+    Route::get('/donations/{id}', [DonationController::class, 'show']);
+    Route::get('/donations/search/{name}', [DonationController::class, 'search']);
     Route::post('/donations', [DonationController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
+
     // Auth Routes
     Route::post('/logout', [AuthController::class, 'logout']);
-
 });
 
 

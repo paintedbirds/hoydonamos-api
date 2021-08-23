@@ -38,7 +38,6 @@ class DonationController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'tags' => 'required',
         ]);
 
         return Donation::create($request->all());
