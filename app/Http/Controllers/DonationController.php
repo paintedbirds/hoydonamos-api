@@ -35,12 +35,28 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-
-        return Donation::create($request->all());
+        if ($request->hasFile('file_path')) {
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png'
+            ]);
+            $request->file_path->store('donation', 'public');
+            $donation = new Donation([
+                "name" => $request->get('name'),
+                "description" => $request->get('description'),
+                "file_path" => $request->file_path->hashName()
+            ]);
+            $donation->save();
+            return $donation;
+        }
+        else {
+            $donation = new Donation([
+                "name" => $request->get('name'),
+                "description" => $request->get('description'),
+                // "file_path" => set a image default
+            ]);
+            $donation->save();
+            return 'sin file';
+        }
     }
 
     /**
