@@ -55,7 +55,7 @@ class DonationController extends Controller
                 // "file_path" => set a image default
             ]);
             $donation->save();
-            return 'sin file';
+            return $donation;
         }
     }
 
