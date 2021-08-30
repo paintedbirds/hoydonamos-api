@@ -17,7 +17,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('file_path')->default('');
+            $table->string('image');
             $table->timestamps();
         });
     }

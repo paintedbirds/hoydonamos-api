@@ -12,6 +12,6 @@ class Donation extends Model
     protected $fillable = [
         'name',
         'description',
-        'file_path',
+        'image',
     ];
 }
