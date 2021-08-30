@@ -35,18 +35,16 @@ class DonationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        /*
+    {
         $user = Auth::user();
-        $post = new Post();
-        $post->user()->associate($user);
-       */
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
+        $donation = new Donation();
+        $donation = new Donation([
+            "name" => $request->get('name'),
+            "description" => $request->get('description'),
         ]);
-
-        return Donation::create($request->all());
+        $donation->user()->associate($user);
+        $donation->save();
+        return $donation;
     }
 
     /**

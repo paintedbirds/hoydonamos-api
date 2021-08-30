@@ -13,10 +13,8 @@ class Donation extends Model
         'name',
         'description',
     ];
-/*
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    */
 }
