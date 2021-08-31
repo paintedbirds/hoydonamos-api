@@ -41,7 +41,6 @@ class UserCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('email');
-        CRUD::column('password');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
