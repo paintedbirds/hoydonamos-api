@@ -30,8 +30,8 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token
         ];
-        $correo = new MailerAuth($user->name);
-        Mail::to($user->email)->send($correo);
+        $mail = new MailerAuth($user->name);
+        Mail::to($user->email)->send($mail);
         return response($response, 200);
     }
 
