@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\MailerAuth;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -28,7 +30,8 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token
         ];
-
+        $mail = new MailerAuth($user->name);
+        Mail::to($user->email)->send($mail);
         return response($response, 200);
     }
 
@@ -39,7 +42,6 @@ class AuthController extends Controller
         ]);
         // Check email
         $user = User::where('email', $fields['email'])->first();
-
         // Check password
         if(!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
