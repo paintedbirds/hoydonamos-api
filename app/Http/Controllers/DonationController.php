@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DonationController extends Controller
 {
@@ -35,6 +36,7 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -46,6 +48,7 @@ class DonationController extends Controller
             "description" => $request->get('description'),
             "image" => $request->image->hashName()
         ]);
+        $donation->user()->associate($user);
         $donation->save();
         return $donation;
     }
