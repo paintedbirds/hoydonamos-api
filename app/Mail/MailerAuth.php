@@ -29,6 +29,6 @@ class MailerAuth extends Mailable
      */
     public function build()
     {
-        return $this->view('bodyMailRegistration');
+        return $this->view('mails/bodyMailRegistration');
     }
 }
