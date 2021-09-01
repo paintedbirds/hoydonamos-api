@@ -38,9 +38,16 @@ class DonationController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'image' => 'required|mimes:jpeg,bmp,png'
         ]);
-
-        return Donation::create($request->all());
+        $request->image->store('donation', 'public');
+        $donation = new Donation([
+            "name" => $request->get('name'),
+            "description" => $request->get('description'),
+            "image" => $request->image->hashName()
+        ]);
+        $donation->save();
+        return $donation;
     }
 
     /**
