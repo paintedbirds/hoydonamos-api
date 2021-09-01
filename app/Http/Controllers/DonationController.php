@@ -12,8 +12,12 @@ class DonationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($search = null)
     {
+        if(!is_null($search)){
+            return Donation::where('name', 'like','%'.$search.'%')->get();
+        }
+
         return Donation::all();
     }
 
@@ -88,15 +92,5 @@ class DonationController extends Controller
     public function destroy($id)
     {
         return Donation::destroy($id);
-    }
-    /**
-     * Search for a name.
-     *
-     * @param  str $name
-     * @return \Illuminate\Http\Response
-     */
-    public function search($name)
-    {
-        return Donation::where('name', 'like','%'.$name.'%')->get();
     }
 }
