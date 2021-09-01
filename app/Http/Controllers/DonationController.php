@@ -37,10 +37,16 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        $donation = new Donation();
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpeg,bmp,png'
+        ]);
+        $request->image->store('donation', 'public');
         $donation = new Donation([
             "name" => $request->get('name'),
             "description" => $request->get('description'),
+            "image" => $request->image->hashName()
         ]);
         $donation->user()->associate($user);
         $donation->save();

@@ -12,6 +12,7 @@ class Donation extends Model
     protected $fillable = [
         'name',
         'description',
+        'image',
     ];
     public function user()
     {
