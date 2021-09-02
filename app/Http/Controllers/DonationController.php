@@ -17,8 +17,8 @@ class DonationController extends Controller
     {
         if(!is_null($search)){
             return Donation::where('name', 'like','%'.$search.'%')->get();
-        }
-
+        } 
+        
         return Donation::all();
     }
 
@@ -39,21 +39,26 @@ class DonationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $user = Auth::user();
+    {        
         $request->validate([
             'name' => 'required',
             'description' => 'required',
             'image' => 'required|mimes:jpeg,bmp,png'
         ]);
-        $request->image->store('donation', 'public');
+
+        $user = Auth::user();
+
+        $request->image->store('donations', 'public');
+
         $donation = new Donation([
             "name" => $request->get('name'),
             "description" => $request->get('description'),
-            "image" => $request->image->hashName()
+            "image" => asset('/storage/donations/'.$request->image->hashName()),
         ]);
+
         $donation->user()->associate($user);
         $donation->save();
+        
         return $donation;
     }
 
@@ -64,7 +69,7 @@ class DonationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    { 
         return Donation::find($id);
     }
 
