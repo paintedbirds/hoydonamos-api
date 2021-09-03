@@ -16,10 +16,10 @@ class DonationController extends Controller
     public function index($search = null)
     {
         if(!is_null($search)){
-            return Donation::where('name', 'like','%'.$search.'%')->get();
-        } 
-        
-        return Donation::all();
+            return Donation::where('name', 'like','%'.$search.'%')->paginate(10);
+        }
+
+        return Donation::paginate(10);
     }
 
     /**
