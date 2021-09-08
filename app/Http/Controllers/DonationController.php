@@ -43,7 +43,7 @@ class DonationController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpeg,bmp,png'
+            'image' => 'required|mimes:jpeg,bmp,png',
         ]);
 
         $user = Auth::user();

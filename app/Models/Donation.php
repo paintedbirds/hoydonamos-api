@@ -13,6 +13,7 @@ class Donation extends Model
         'name',
         'description',
         'image',
+        'state',
     ];
     public function user()
     {

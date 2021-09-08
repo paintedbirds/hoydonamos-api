@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\DonationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -58,7 +57,6 @@ class DonationCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(DonationRequest::class);
 
         CRUD::field('id');
         CRUD::field('created_at');
