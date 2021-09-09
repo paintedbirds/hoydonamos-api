@@ -40,8 +40,10 @@ class DonationCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('id');
+        CRUD::column('user_id');
         CRUD::column('name');
         CRUD::column('description');
+        CRUD::column('image');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,8 +61,9 @@ class DonationCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::field('name');
+        CRUD::field('user_id');        
         CRUD::field('description');        
-
+        CRUD::field('image');        
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
