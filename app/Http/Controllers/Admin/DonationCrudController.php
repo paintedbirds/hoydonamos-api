@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\DonationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -60,10 +59,22 @@ class DonationCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        CRUD::field('id');
         CRUD::field('name');
         CRUD::field('user_id');        
         CRUD::field('description');        
-        CRUD::field('image');        
+        CRUD::field('image');
+        /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         */
+    }
+
+    protected function updateState()
+    {
+
+        CRUD::field('state');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -79,6 +90,6 @@ class DonationCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateState();
     }
 }
