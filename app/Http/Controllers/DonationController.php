@@ -18,8 +18,7 @@ class DonationController extends Controller
         if(!is_null($search)){
             return Donation::where('name', 'like','%'.$search.'%')->paginate(10);
         }
-
-        return Donation::paginate(10);
+        return Donation::where('state', 'PUBLISHED')->paginate(10);
     }
 
     /**
