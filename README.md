@@ -12,9 +12,10 @@ Siendo un proyecto de fin de año, donde aplicamos todos los conocimientos adqui
 Dentro del proyecto se decidió implementar el uso del Framework Laravel para poder desarrollar y gestionar todos los datos recibidos y almacenados en el Backend, usando el modelo MVC para las entidades y los datos.
 
 Tambien se implemento el paquete [BackPack](https://backpackforlaravel.com/docs) de Laravel, que se usa como panel, donde el administrador controla todos los datos almacenados dentro de la Base de datos, pudiendo aprobarlos, rechazarlos, analizarlos y eliminarlos a gusto.
+
 Esto es gracias a que BackPack nos da un panel pre definidos ya que este usa muchos paquetes y vistas que nos facilita su uso.
 
-
+Para la creacion de las tablas y exportacion de datos dentro de la Base de Datos se utilizo _Migrations_ simplificando la exportacion de lo ya mencionado, estas crean un archivo que se puede modificar a gusto y se relaciona juntos al modelo utilizado MVC, sin neccesidad de hacer Querys de SQL.
  
 ## Deploy localmente
 
@@ -106,7 +107,7 @@ _Ejemplo de una ruta sin protección :_
 
 Para la creacion de los endpoints dentro del proyecto, se utilizo la herramienta ya mencionada anteriormente, Postman.
 
-Para la facilitacion de obtencion de datos dentro delos endpoints, se decidio implementar _Pagination_ para que si reciben grandes cantidades de datos esto no sea un problema dentro de las Request.
+Para la facilitacion de obtencion de datos dentro delos endpoints, se decidio implementar _Pagination_ para que si reciben grandes cantidades de datos esto no sea un problema dentro de las Request, evitando un mal perfomance dividiendo el resultado obtenido en pequeñas listas.
 
 Aclarar que el limite de objetos recibidos a mostrar dentro de una Request es de 10, siendo lo suficientemente neccesario para el uso dentro del FrontEnd.
 
