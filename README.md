@@ -47,9 +47,7 @@ Para correr el proyecto usar :
 ```bash
   php artisan serve
 ```
-
-  
-  
+---
 ## Variables de entorno
 
 Para poder correr el proyecto correctamente se necesita cambiar algunas variables de entorno, tales como :
@@ -62,20 +60,33 @@ Para poder correr el proyecto correctamente se necesita cambiar algunas variable
 
 Estas siendo para configurar donde se localizara la base de datos.
 
+---
+
+## BackPack
+
+Para la implementacion del Admin Panel se decidio utilizar Backpack, este siendo un conjunto de paquetes, el cual nos permite la moderacion del Backend.
+
+Aplicando las funcionalidades requeridas para que un Administrador puede ver listadas las donaciones, peticiones, usuarios y en caso de aprobar una donacion o eliminarla este tenga las herramientas para hacerlo.
 
 
-  
+---
+
 ## Endpoints 
 
 A continuación se explicará todo sobre la creación de los Endpoints realizados y su formato dentro de la herramienta seleccionada [Postman](https://www.postman.com/).
 
-### Link del Postman
+### Collection
 
-Workspace : _https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3_
+Archivo : proyecto_integrador_postman_collection
 
-### Autenticación en los Endpoints
+URL : https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
+
+## Autenticación en los Endpoints
 
 Se utilizó el manejo de Tokens y de Rutas aseguradas para la Autenticación y Seguridad dentro del proyecto gracias a [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works) que es un paquete mismo de Laravel.
+
+Esto se decidio utilizar gracias a que se acoplaba al proyecto con sus neccesidades, por su facil forma de implementar dentro de Laravel.
+
 
 ---
 
@@ -90,40 +101,22 @@ _Ejemplo de una ruta sin protección :_
   <Route::post('/DIRECCION_API', [CONTROLADOR::class, 'FUNCION_EJECUTAR']);
 ```
 ---
-### Request
-Estos son algunos Endpoints usados normalmente dentro del Front que se explicaran su funcionamiento y que retornan.
-#### Traer todas las donaciones
+## Request
+
+
+Para la creacion de los endpoints dentro del proyecto, se utilizo la herramienta ya mencionada anteriormente, Postman.
+
+Para la facilitacion de obtencion de datos dentro delos endpoints, se decidio implementar _Pagination_ para que si reciben grandes cantidades de datos esto no sea un problema dentro de las Request.
+
+Aclarar que el limite de objetos recibidos a mostrar dentro de una Request es de 10, siendo lo suficientemente neccesario para el uso dentro del FrontEnd.
+
+### EJemplo de una Request con Pagination :
+
 ```http
   GET /api/donations
 ```
-Esto retorna todas las donaciones que han sido aprobadas con un formato _JSON_ más _Pagination_ controlado desde el Back.
 
---- 
-#### Crear una donación
-```http
-  POST /api/donations
-```
-Esto creará una donación(requiere un nombre, descripción, imagen y un usuario autenticado) que además de los valores que se le pasaran se le sumarán los valores del user que la creó gracias al token utilizado, ya que para poder ejecutar todos los endpoint se le tendrán que pasar el token de un usuario logueado.
-
---- 
---- 
-#### Registrar un usuario
-```http
-  POST /api/register
-```
-Esto creará un usuario dentro de la BD donde si se cumplen todos los campos de validaciones, se retornará un 201 junto al usuario creado en el Postman.
-
---- 
---- 
-#### Iniciar sesion un usuario
-```http
-  POST /api/login
-```
-Esto loguea un usuario si cumple con todas las condiciones predefinidas, tales como haber registrado un usuario anteriormente y que los campos están llenos, esto retornara un 200 junto al user con el token asignado que utilizara para poder usar todos los Endpoints dentro de Postman, también servirá como insumo dentro del Front.
-
---- 
-
-
+---
 ## Authors
 
 - [@Alejandro Gonzalez](https://github.com/alejandroGonGon)
