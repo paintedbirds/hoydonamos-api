@@ -58,10 +58,15 @@ class AuthController extends Controller
 
         return response($response, 200);
     }
+    public function update(Request $request, $id)
+{
+    $user = User::find($id);
+    $user->update($request->all());
+    return $user;   
+}
 
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
-
         return [
             'message' => 'Se ha cerrarado sesion correctamente'
         ];

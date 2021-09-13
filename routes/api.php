@@ -30,12 +30,12 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
+    Route::put('/update/{id}', [AuthController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
 
     // Auth Routes
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
