@@ -33,7 +33,7 @@ instalar y actualizar las dependencias, utilizando [composer](https://getcompose
   composer update
 ```
 
-usar/actualizar migrations
+correr las migraciones de nuestra base de datos
 ```bash
   php artisan migrate
   php artisan migrate:refresh
