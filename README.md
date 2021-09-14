@@ -6,7 +6,7 @@ Este proyecto esta creado sobre [Laravel](https://laravel.com/).
 
 
 
-## Caracteristicas
+## Características
 
 Dentro del proyecto se decidió implementar el uso del Framework Laravel para poder desarrollar y gestionar todos los datos recibidos y almacenados en el Backend, usando el modelo MVC para las entidades y los datos.
 
