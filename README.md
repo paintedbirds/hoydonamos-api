@@ -8,7 +8,6 @@ Este proyecto esta creado sobre [Laravel](https://laravel.com/).
 
 ## Características
 
-Dentro del proyecto se decidió implementar el uso del Framework Laravel para poder desarrollar y gestionar todos los datos recibidos y almacenados en el Backend, usando el modelo MVC para las entidades y los datos.
 
 Tambien se implemento el paquete [BackPack](https://backpackforlaravel.com/docs) de Laravel, que se usa como panel, donde el administrador controla todos los datos almacenados dentro de la Base de datos, pudiendo aprobarlos, rechazarlos, analizarlos y eliminarlos a gusto.
 
