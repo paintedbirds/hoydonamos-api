@@ -21,7 +21,7 @@ clonar el proyecto
   git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
 ```
 
-ir a la carpeta del proyecto
+ir a la carpeta `root` del proyecto
 ```bash
   cd 2021_Proyecto_Integrador_Equipo_3-Backend
 ```
