@@ -3,7 +3,6 @@
 
 Este proyecto esta creado sobre [Laravel](https://laravel.com/).
 
-Siendo un proyecto de fin de año, donde aplicamos todos los conocimientos adquiridos a lo largo del año cursado.
 
 
 
