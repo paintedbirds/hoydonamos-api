@@ -26,7 +26,7 @@ ir a la carpeta `root` del proyecto
   cd 2021_Proyecto_Integrador_Equipo_3-Backend
 ```
 
-instalar/actualizar composer
+instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
 
 ```bash
   composer install
