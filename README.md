@@ -55,7 +55,7 @@ Para poder levantar el servicio correctamente se necesitan ciertas variables de 
 
 `DB_PASSWORD`
 
-Estas siendo para configurar donde se localizara la base de datos.
+Informacion sobre nuestra base de datos local.
 
 ---
 
