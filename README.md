@@ -90,7 +90,7 @@ Decidimos utilizar este metodo ya que se amolda a las necesidades del proyecto, 
 Las rutas que necesitan autentificacion estas agrupadas bajo el `middleware` de Sanctum dentro de nuestro archivo de rutas.
 ```php
   Route::group(['middleware' => ['auth:sanctum']], function () {
-    // Todas las rutas puestas aqui estarán protegidas y solo serán ejecutadas si la autenticación via token coincide.
+    // Todas las rutas puestas aqui estarán protegidas y solo podran ser accedidas si la autenticación via token es exitosa.
   });
 ```
 Las rutas que esten por fuera del `middleware` no tendran autentificacion.
