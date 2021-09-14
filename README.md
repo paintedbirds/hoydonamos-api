@@ -15,7 +15,7 @@ Gestionamos la creacion de nuestra base de datos a travez de [migraciones de lar
  
 ## Levantar el servicio localmente
 
-clonar el proyecto
+clonar este repositorio
 
 ```bash
   git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
