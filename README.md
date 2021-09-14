@@ -47,7 +47,7 @@ Levantar el servidor :
 ---
 ## Variables de entorno
 
-Para poder correr el proyecto correctamente se necesita cambiar algunas variables de entorno, tales como :
+Para poder levantar el servicio correctamente se necesitan ciertas variables de entorno :
 
 `DB_DATABASE`
 
