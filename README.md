@@ -11,7 +11,7 @@ Este proyecto esta creado sobre [Laravel](https://laravel.com/).
 
 Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
 
-Para la creacion de las tablas y exportacion de datos dentro de la Base de Datos se utilizo _Migrations_ simplificando la exportacion de lo ya mencionado, estas crean un archivo que se puede modificar a gusto y se relaciona juntos al modelo utilizado MVC, sin neccesidad de hacer Querys de SQL.
+Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
  
 ## Deploy localmente
 
