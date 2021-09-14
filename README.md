@@ -70,7 +70,7 @@ Aplicando las funcionalidades requeridas para que un Administrador puede ver lis
 
 ## Endpoints 
 
-A continuación se explicará todo sobre la creación de los Endpoints realizados y su formato dentro de la herramienta seleccionada [Postman](https://www.postman.com/).
+Encontraran una coleccion de [Postman](https://www.postman.com/) con todos los endpoints de nuestra aplicacion.
 
 ### Collection
 
