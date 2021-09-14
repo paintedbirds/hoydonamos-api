@@ -80,9 +80,9 @@ URL : https://www.postman.com/avionics-participant-66176292/workspace/proyecto-i
 
 ## Autenticación en los Endpoints
 
-Se utilizó el manejo de Tokens y de Rutas aseguradas para la Autenticación y Seguridad dentro del proyecto gracias a [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works) que es un paquete mismo de Laravel.
+La autentificacion de la aplicacion esta basada en tokens y la seguridad en rutas dependientes de la presencia de estos tokens. Para una correcta gestion de la autentificacion utilizamos [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works).
 
-Esto se decidio utilizar gracias a que se acoplaba al proyecto con sus neccesidades, por su facil forma de implementar dentro de Laravel.
+Decidimos utilizar este metodo ya que se amolda a las necesidades del proyecto, ademas tiene cierta sencilles en su implementacion lo que agilizo el proceso de desarrollo.
 
 
 ---
