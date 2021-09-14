@@ -98,7 +98,6 @@ Las rutas que esten por fuera del `middleware` no tendran autentificacion.
 ## Paginacion en los endpoints
 
 
-Para la creacion de los endpoints dentro del proyecto, se utilizo la herramienta ya mencionada anteriormente, Postman.
 
 Para la facilitacion de obtencion de datos dentro delos endpoints, se decidio implementar _Pagination_ para que si reciben grandes cantidades de datos esto no sea un problema dentro de las Request, evitando un mal perfomance dividiendo el resultado obtenido en pequeñas listas.
 
