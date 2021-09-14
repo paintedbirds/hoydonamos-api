@@ -95,7 +95,7 @@ Las rutas que necesitan autentificacion estas agrupadas bajo el `middleware` de 
 ```
 Las rutas que esten por fuera del `middleware` no tendran autentificacion.
 ---
-## Request
+## Paginacion en los endpoints
 
 
 Para la creacion de los endpoints dentro del proyecto, se utilizo la herramienta ya mencionada anteriormente, Postman.
