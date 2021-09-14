@@ -93,10 +93,7 @@ Las rutas que necesitan autentificacion estas agrupadas bajo el `middleware` de 
     // Todas las rutas puestas aqui estarán protegidas y solo serán ejecutadas si la autenticación via token coincide.
   });
 ```
-_Ejemplo de una ruta sin protección :_
-```php
-  <Route::post('/DIRECCION_API', [CONTROLADOR::class, 'FUNCION_EJECUTAR']);
-```
+Las rutas que esten por fuera del `middleware` no tendran autentificacion.
 ---
 ## Request
 
