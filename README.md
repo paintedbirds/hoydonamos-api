@@ -39,7 +39,7 @@ correr las migraciones de nuestra base de datos
   php artisan migrate:refresh
   ```
 
-Para correr el proyecto usar :
+Levantar el servidor :
 
 ```bash
   php artisan serve
