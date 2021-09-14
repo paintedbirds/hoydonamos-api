@@ -13,7 +13,7 @@ Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual no
 
 Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
  
-## Deploy localmente
+## Levantar el servicio localmente
 
 clonar el proyecto
 
