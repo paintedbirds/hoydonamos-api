@@ -103,7 +103,7 @@ Para la facilitacion de obtencion de datos dentro delos endpoints, se decidio im
 
 Aclarar que el limite de objetos recibidos a mostrar dentro de una Request es de 10, siendo lo suficientemente neccesario para el uso dentro del FrontEnd.
 
-### EJemplo de una Request con Pagination :
+### Ejemplo de una endpoint con paginacion :
 
 ```http
   GET /api/donations
