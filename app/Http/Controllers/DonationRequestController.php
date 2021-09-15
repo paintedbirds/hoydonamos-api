@@ -41,7 +41,6 @@ class DonationRequestController extends Controller
             ]);
 
         $user = Auth::user();
-        $donacion = 
         $request = new DonationRequest([
             "reason" => $request->get('reason'),
         ]);
