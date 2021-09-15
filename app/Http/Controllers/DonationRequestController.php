@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DonatioRequest;
+use App\Models\DonationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DonatioRequestController extends Controller
+class DonationRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +42,7 @@ class DonatioRequestController extends Controller
 
         $user = Auth::user();
         $donacion = 
-        $request = new DonatioRequest([
+        $request = new DonationRequest([
             "reason" => $request->get('reason'),
         ]);
         $request->user()->associate($user);
@@ -54,10 +54,10 @@ class DonatioRequestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DonatioRequest  $donatioRequest
+     * @param  \App\Models\DonationRequest  $DonationRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(DonatioRequest $donatioRequest)
+    public function show(DonationRequest $DonationRequest)
     {
         //
     }
@@ -65,10 +65,10 @@ class DonatioRequestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DonatioRequest  $donatioRequest
+     * @param  \App\Models\DonationRequest  $DonationRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit(DonatioRequest $donatioRequest)
+    public function edit(DonationRequest $DonationRequest)
     {
         //
     }
@@ -77,10 +77,10 @@ class DonatioRequestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DonatioRequest  $donatioRequest
+     * @param  \App\Models\DonationRequest  $DonationRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DonatioRequest $donatioRequest)
+    public function update(Request $request, DonationRequest $DonationRequest)
     {
         //
     }
@@ -88,10 +88,10 @@ class DonatioRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DonatioRequest  $donatioRequest
+     * @param  \App\Models\DonationRequest  $DonationRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DonatioRequest $donatioRequest)
+    public function destroy(DonationRequest $DonationRequest)
     {
         //
     }
