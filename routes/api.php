@@ -30,7 +30,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
-    Route::put('/update/{id}', [AuthController::class, 'update']);
+    Route::put('/users/{id}', [AuthController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
 
     // Auth Routes

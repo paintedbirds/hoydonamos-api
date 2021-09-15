@@ -60,8 +60,15 @@ class AuthController extends Controller
     }
     public function update(Request $request, $id)
 {
+    $fields = $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|email  ',
+        'phone' => 'integer',
+        'about_me' => 'string',
+    ]);
+
     $user = User::find($id);
-    $user->update($request->all());
+    $user->update($fields);
     return $user;   
 }
 
