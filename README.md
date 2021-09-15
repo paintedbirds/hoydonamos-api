@@ -1,62 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Che, ¿ Hoy donamos ?
 
-## About Laravel
+Este proyecto esta creado sobre [Laravel](https://laravel.com/).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Características
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
 
-## Laravel Sponsors
+Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
+ 
+ ---
+## Variables de entorno
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Para poder levantar el servicio correctamente se necesitan ciertas variables de entorno :
 
-### Premium Partners
+`DB_DATABASE`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+`DB_USERNAME`
 
-## Contributing
+`DB_PASSWORD`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Informacion sobre nuestra base de datos local.
 
-## Code of Conduct
+## Levantar el servicio localmente
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+clonar este repositorio
 
-## Security Vulnerabilities
+```bash
+  git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ir a la carpeta `root` del proyecto
+```bash
+  cd 2021_Proyecto_Integrador_Equipo_3-Backend
+```
 
-## License
+instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+  composer install
+  composer update
+```
+
+correr las migraciones de nuestra base de datos
+```bash
+  php artisan migrate
+  php artisan migrate:refresh
+  ```
+
+Levantar el servidor :
+
+```bash
+  php artisan serve
+```
+
+---
+## BackPack
+
+Para la implementacion del Admin Panel se decidio utilizar Backpack, este siendo un conjunto de paquetes, el cual nos permite la moderacion del Backend.
+
+Aplicando las funcionalidades requeridas para que un Administrador puede ver listadas las donaciones, peticiones, usuarios y en caso de aprobar una donacion o eliminarla este tenga las herramientas para hacerlo.
+
+
+---
+
+## Endpoints 
+
+Encontraran una coleccion de [Postman](https://www.postman.com/) con todos los endpoints de nuestra aplicacion.
+
+Archivo : proyecto_integrador_postman_collection
+
+URL : https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
+
+## Autenticación en los Endpoints
+
+La autentificacion de la aplicacion esta basada en tokens y la seguridad en rutas dependientes de la presencia de estos tokens. Para una correcta gestion de la autentificacion utilizamos [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works).
+
+Decidimos utilizar este metodo ya que se amolda a las necesidades del proyecto, ademas tiene cierta sencilles en su implementacion lo que agilizo el proceso de desarrollo.
+
+
+---
+
+Las rutas que necesitan autentificacion estas agrupadas bajo el `middleware` de Sanctum dentro de nuestro archivo de rutas.
+```php
+  Route::group(['middleware' => ['auth:sanctum']], function () {
+    // Todas las rutas puestas aqui estarán protegidas y solo podran ser accedidas si la autenticación via token es exitosa.
+  });
+```
+Las rutas que esten por fuera del `middleware` no tendran autentificacion.
+
+---
+## Paginacion en los endpoints
+
+Hemos utilizado las facilidades que nos da Eloquent para poder paginar los endpoints de nuestra API que devuelven grandes cantidades de recursos. Decidimos que el limite de registros enviados en un endpoint paginado seria de 10, un limite que del lado del cliente es aceptable.
+
+### Ejemplo de una endpoint con paginacion :
+
+```http
+  GET /api/donations
+```
+
+---
+## Authors
+
+- [@Alejandro Gonzalez](https://github.com/alejandroGonGon)
+- [@Nicolas Machado](https://github.com/nicocadq)
+- [@Lautaro Pardo](https://github.com/LautaroPardo)
+- [@Facundo Correa](https://github.com/facorrea700)
+
+
+
