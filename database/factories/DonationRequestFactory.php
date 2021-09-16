@@ -24,11 +24,13 @@ class DonationRequestFactory extends Factory
      */
     public function definition()
     {
+        $state = ['ACCEPTED', 'REJETCTED', 'PENDING'];
+
         return [
             'user_id' => User::all()->random()->id,
             'donation_id' => Donation::all()->random()->id,
             'reason' => Str::random(20),
-            //state
+            'state' =>  $state[rand(0,2)],
         ];
     }
 }

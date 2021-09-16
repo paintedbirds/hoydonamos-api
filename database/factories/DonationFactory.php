@@ -24,12 +24,14 @@ class DonationFactory extends Factory
      */
     public function definition()
     {
+        $state = ['PENDING', 'PUBLISHED', 'REJETCTED'];
+
         return [
             'user_id' => User::all()->random()->id,
             'name' => Str::random(20),
             'description' => Str::random(20),
             'image' => 'http://127.0.0.1:8000/storage/donations/7BWYWHfhZyKQGEXVCmLSLEiMgmfriJzWoubhhQ5C.png',
-            //state
+            'state' =>  $state[rand(0,2)],
         ];
     }
 }
