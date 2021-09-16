@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Donation;
 use App\Models\DonationRequest;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class DonationRequestFactory extends Factory
 {
@@ -22,7 +25,10 @@ class DonationRequestFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::all()->random()->id,
+            'donation_id' => Donation::all()->random()->id,
+            'reason' => Str::random(20),
+            //state
         ];
     }
 }
