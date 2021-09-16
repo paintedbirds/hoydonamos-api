@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\DonationRequestController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -29,6 +30,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::get('/donations/{search?}', [DonationController::class, 'index']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
+    Route::post('/donations/{id}/requests', [DonationRequestController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
 
