@@ -30,7 +30,7 @@ class DonationFactory extends Factory
             'user_id' => User::all()->random()->id,
             'name' => Str::random(20),
             'description' => Str::random(20),
-            'image' => 'http://127.0.0.1:8000/storage/donations/7BWYWHfhZyKQGEXVCmLSLEiMgmfriJzWoubhhQ5C.png',
+            'image' => 'https://source.unsplash.com/random/1200x800',
             'state' =>  $state[rand(0,2)],
         ];
     }
