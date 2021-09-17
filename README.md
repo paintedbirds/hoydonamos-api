@@ -46,11 +46,12 @@ instalar y actualizar las dependencias, utilizando [composer](https://getcompose
   composer update
 ```
 
-correr las migraciones de nuestra base de datos
+correr las migracionesy las seeders de nuestra base de datos 
 ```bash
-  php artisan migrate
-  php artisan migrate:refresh
+  php artisan migrate --seed
+  php artisan migrate:refresh --seed
   ```
+ Las seeders es una forma de crear datos falsos para que al inicializar la aplicacion tenga datos pre cargados.
 
 Levantar el servidor :
 
