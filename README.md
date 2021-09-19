@@ -71,10 +71,7 @@ Aplicando las funcionalidades requeridas para que un Administrador puede ver lis
 ## Endpoints 
 
 Encontraran una coleccion de [Postman](https://www.postman.com/) con todos los endpoints de nuestra aplicacion.
-
-Archivo : proyecto_integrador_postman_collection
-
-URL : https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
+Tambien pueden verlo de manera en la web: https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
 
 ## Autenticación en los Endpoints
 
