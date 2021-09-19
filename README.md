@@ -26,41 +26,6 @@ Para poder levantar el servicio correctamente se necesitan ciertas variables de 
 
 Informacion sobre nuestra base de datos local.
 
-## Levantar el servicio localmente
-
-1 - Clonar este repositorio
-
-```bash
-git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
-```
-
-2 - Ir a la carpeta `root` del proyecto
-```bash
-cd 2021_Proyecto_Integrador_Equipo_3-Backend
-```
-
-3 - Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
-
-```bash
-composer install
-composer update
-```
-5 - Crear un archivo `.env` basandote en el `.env.example` 
-```bash
-php artisan migrate --seed
-```
-6 - Correr las migraciones y seeders de nuestra base de datos 
-```bash
-php artisan migrate --seed
-```
-Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
-
-7 - Levantar el servidor :
-
-```bash
-php artisan serve
-```
-
 ---
 ## BackPack
 
@@ -105,6 +70,42 @@ Hemos utilizado las facilidades que nos da Eloquent para poder paginar los endpo
 ```
 
 ---
+## Levantar el servicio localmente
+
+1 - Clonar este repositorio
+
+```bash
+git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
+```
+
+2 - Ir a la carpeta `root` del proyecto
+```bash
+cd 2021_Proyecto_Integrador_Equipo_3-Backend
+```
+
+3 - Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
+
+```bash
+composer install
+composer update
+```
+5 - Crear un archivo `.env` basandote en el `.env.example` 
+```bash
+php artisan migrate --seed
+```
+6 - Correr las migraciones y seeders de nuestra base de datos 
+```bash
+php artisan migrate --seed
+```
+Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
+
+7 - Levantar el servidor :
+
+```bash
+php artisan serve
+```
+---
+
 ## Authors
 
 - [@Alejandro Gonzalez](https://github.com/alejandroGonGon)
