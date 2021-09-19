@@ -50,7 +50,7 @@ composer update
 ```bash
 php artisan migrate --seed
 ```
-5 - Las seeders es una forma de crear datos falsos para que al inicializar la aplicacion tenga datos pre cargados.
+Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
 
 6 - Levantar el servidor :
 
