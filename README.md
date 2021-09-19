@@ -45,14 +45,17 @@ cd 2021_Proyecto_Integrador_Equipo_3-Backend
 composer install
 composer update
 ```
-
-4 - Correr las migraciones y seeders de nuestra base de datos 
+5 - Crear un archivo `.env` basandote en el `.env.example` 
+```bash
+php artisan migrate --seed
+```
+6 - Correr las migraciones y seeders de nuestra base de datos 
 ```bash
 php artisan migrate --seed
 ```
 Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
 
-6 - Levantar el servidor :
+7 - Levantar el servidor :
 
 ```bash
 php artisan serve
