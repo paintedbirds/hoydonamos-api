@@ -28,34 +28,34 @@ Informacion sobre nuestra base de datos local.
 
 ## Levantar el servicio localmente
 
-clonar este repositorio
+1 - Clonar este repositorio
 
 ```bash
-  git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
+git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
 ```
 
-ir a la carpeta `root` del proyecto
+2 - Ir a la carpeta `root` del proyecto
 ```bash
-  cd 2021_Proyecto_Integrador_Equipo_3-Backend
+cd 2021_Proyecto_Integrador_Equipo_3-Backend
 ```
 
-instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
+3 - Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
 
 ```bash
-  composer install
-  composer update
+composer install
+composer update
 ```
 
-correr las migraciones y seeders de nuestra base de datos 
+4 - Correr las migraciones y seeders de nuestra base de datos 
 ```bash
-  php artisan migrate --seed
-  ```
- Las seeders es una forma de crear datos falsos para que al inicializar la aplicacion tenga datos pre cargados.
+php artisan migrate --seed
+```
+5 - Las seeders es una forma de crear datos falsos para que al inicializar la aplicacion tenga datos pre cargados.
 
-Levantar el servidor :
+6 - Levantar el servidor :
 
 ```bash
-  php artisan serve
+php artisan serve
 ```
 
 ---
