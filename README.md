@@ -1,117 +1,99 @@
+![Logo](docs/logo.svg)
 
-# Che, ¿ Hoy donamos ?
+# Che, ¿hoy donamos?
 
-Este proyecto esta creado sobre [Laravel](https://laravel.com/).
-
-
-
+API y Panel de Administración de `Che, ¿hoy donamos?`, realizado en [Laravel](https://laravel.com/).
 
 ## Características
 
+-   Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
 
-Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
-
-Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
- 
- ---
-## Variables de entorno
-
-Para poder levantar el servicio correctamente se necesitan ciertas variables de entorno :
-
-`DB_DATABASE`
-
-`DB_USERNAME`
-
-`DB_PASSWORD`
-
-Informacion sobre nuestra base de datos local.
-
----
-## BackPack
-
-Para la implementacion del Admin Panel se decidio utilizar Backpack, este siendo un conjunto de paquetes, el cual nos permite la moderacion del Backend.
-
-Aplicando las funcionalidades requeridas para que un Administrador puede ver listadas las donaciones, peticiones, usuarios y en caso de aprobar una donacion o eliminarla este tenga las herramientas para hacerlo.
-
+-   Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
 
 ---
 
-## Endpoints 
+## Endpoints
 
 Encontraran una coleccion de [Postman](https://www.postman.com/) con todos los endpoints de nuestra aplicacion.
-Tambien pueden verlo de manera en la web: https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
+Tambien pueden verlo en formato online: https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
 
-## Autenticación en los Endpoints
+## Autenticación en nuestros servicios
 
 La autentificacion de la aplicacion esta basada en tokens y la seguridad en rutas dependientes de la presencia de estos tokens. Para una correcta gestion de la autentificacion utilizamos [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works).
 
 Decidimos utilizar este metodo ya que se amolda a las necesidades del proyecto, ademas tiene cierta sencilles en su implementacion lo que agilizo el proceso de desarrollo.
 
+Por el momento, el `Panel de Administración` utiliza el mismo servicio de autenticacion.
 
 ---
 
-Las rutas que necesitan autentificacion estas agrupadas bajo el `middleware` de Sanctum dentro de nuestro archivo de rutas.
+Las rutas de la `API` que necesitan autentificacion estas agrupadas bajo el `middleware` de Sanctum, en nuestro archivo de rutas.
+
 ```php
   Route::group(['middleware' => ['auth:sanctum']], function () {
-    // Todas las rutas puestas aqui estarán protegidas y solo podran ser accedidas si la autenticación via token es exitosa.
+    // rutas protegidas aquí
   });
 ```
-Las rutas que esten por fuera del `middleware` no tendran autentificacion.
+
+Todas las rutas puestas dentro del `middleware` estarán protegidas y solo podran ser accedidas si la autenticación via token es exitosa.
+Las rutas que esten por fuera de este no tendran autentificacion.
 
 ---
-## Paginacion en los endpoints
+
+## Paginacion en los endpoints de la API
 
 Hemos utilizado las facilidades que nos da Eloquent para poder paginar los endpoints de nuestra API que devuelven grandes cantidades de recursos. Decidimos que el limite de registros enviados en un endpoint paginado seria de 10, un limite que del lado del cliente es aceptable.
 
-### Ejemplo de una endpoint con paginacion :
+Ejemplo de una endpoint con paginacion :
 
 ```http
   GET /api/donations
 ```
 
 ---
+
 ## Levantar el servicio localmente
 
-1 - Clonar este repositorio
+-   Clonar este repositorio
 
 ```bash
 git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
 ```
 
-2 - Ir a la carpeta `root` del proyecto
+-   Ir a la carpeta `root` del proyecto
+
 ```bash
 cd 2021_Proyecto_Integrador_Equipo_3-Backend
 ```
 
-3 - Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
+-   Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
 
 ```bash
 composer install
 composer update
 ```
-5 - Crear un archivo `.env` basandote en el `.env.example` 
-```bash
-php artisan migrate --seed
-```
-6 - Correr las migraciones y seeders de nuestra base de datos 
-```bash
-php artisan migrate --seed
-```
+
+-   Crear un archivo `.env` basandote en el `.env.example`
+
+-   Correr las migraciones y seeders de nuestra base de datos
+
 Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
 
-7 - Levantar el servidor :
+```bash
+php artisan migrate --seed
+```
+
+-   Levantar el servidor
 
 ```bash
 php artisan serve
 ```
+
 ---
 
 ## Authors
 
-- [@Alejandro Gonzalez](https://github.com/alejandroGonGon)
-- [@Nicolas Machado](https://github.com/nicocadq)
-- [@Lautaro Pardo](https://github.com/LautaroPardo)
-- [@Facundo Correa](https://github.com/facorrea700)
-
-
-
+-   [Alejandro Gonzalez](https://github.com/alejandroGonGon)
+-   [Nicolás Machado da Silva](https://github.com/nicocadq)
+-   [Lautaro Pardo](https://github.com/LautaroPardo)
+-   [Facundo Correa](https://github.com/facorrea700)
