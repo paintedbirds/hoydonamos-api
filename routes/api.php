@@ -22,7 +22,7 @@ Route::resource('donations', DonationController::class);
 
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
+Route::post('/login', ['as' => 'login', 'uses' => [AuthController::class, 'login']]);
 
 
 // Protected Routes
