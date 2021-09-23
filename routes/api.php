@@ -16,17 +16,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-/*
-Route::resource('donations', DonationController::class);
-*/
 
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', ['as' => 'login', 'uses' => [AuthController::class, 'login']]);
+Route::post('/login', [AuthController::class, 'login']);
 
 
 // Protected Routes
-    Route::group(['middleware' => ['auth:sanctum']], function () {
+ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/donations/{search?}', [DonationController::class, 'index']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
@@ -34,7 +31,6 @@ Route::post('/login', ['as' => 'login', 'uses' => [AuthController::class, 'login
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
 
-    // Auth Routes
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
