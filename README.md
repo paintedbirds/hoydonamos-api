@@ -1,62 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+![Logo](docs/logo.svg)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Che, ¿hoy donamos?
 
-## About Laravel
+API y Panel de Administración de `Che, ¿hoy donamos?`, realizado en [Laravel](https://laravel.com/).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Características
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Endpoints
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Encontraran una coleccion de [Postman](https://www.postman.com/) con todos los endpoints de nuestra aplicacion.
+Tambien pueden verlo en formato online: https://www.postman.com/avionics-participant-66176292/workspace/proyecto-integrador-equipo-3
 
-## Laravel Sponsors
+## Autenticación en nuestros servicios
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+La autentificacion de la aplicacion esta basada en tokens y la seguridad en rutas dependientes de la presencia de estos tokens. Para una correcta gestion de la autentificacion utilizamos [Sanctum](https://laravel.com/docs/8.x/sanctum#how-it-works).
 
-### Premium Partners
+Decidimos utilizar este metodo ya que se amolda a las necesidades del proyecto, ademas tiene cierta sencilles en su implementacion lo que agilizo el proceso de desarrollo.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Por el momento, el `Panel de Administración` utiliza el mismo servicio de autenticacion.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Las rutas de la `API` que necesitan autentificacion estas agrupadas bajo el `middleware` de Sanctum, en nuestro archivo de rutas.
 
-## Code of Conduct
+```php
+  Route::group(['middleware' => ['auth:sanctum']], function () {
+    // rutas protegidas aquí
+  });
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Todas las rutas puestas dentro del `middleware` estarán protegidas y solo podran ser accedidas si la autenticación via token es exitosa.
+Las rutas que esten por fuera de este no tendran autentificacion.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Paginacion en los endpoints de la API
 
-## License
+Hemos utilizado las facilidades que nos da Eloquent para poder paginar los endpoints de nuestra API que devuelven grandes cantidades de recursos. Decidimos que el limite de registros enviados en un endpoint paginado seria de 10, un limite que del lado del cliente es aceptable.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ejemplo de una endpoint con paginacion :
+
+```http
+  GET /api/donations
+```
+
+---
+
+## Levantar el servicio localmente
+
+-   Clonar este repositorio
+
+```bash
+git clone https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend.git
+```
+
+-   Ir a la carpeta `root` del proyecto
+
+```bash
+cd 2021_Proyecto_Integrador_Equipo_3-Backend
+```
+
+-   Instalar y actualizar las dependencias, utilizando [composer](https://getcomposer.org/)
+
+```bash
+composer install
+composer update
+```
+
+-   Crear un archivo `.env` basandote en el `.env.example`
+
+-   Correr las migraciones y seeders de nuestra base de datos
+
+Las seeders es una forma de ingresar los datos minimos que la aplicacion necesita para correr correctamente.
+
+```bash
+php artisan migrate --seed
+```
+
+-   Levantar el servidor
+
+```bash
+php artisan serve
+```
+
+---
+
+## Authors
+
+-   [Alejandro Gonzalez](https://github.com/alejandroGonGon)
+-   [Nicolás Machado da Silva](https://github.com/nicocadq)
+-   [Lautaro Pardo](https://github.com/LautaroPardo)
+-   [Facundo Correa](https://github.com/facorrea700)

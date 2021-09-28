@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\DonationRequest;
 
 class DonationRequestSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class DonationRequestSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DonationRequest::factory()
+        ->count(5)
+        ->create();
     }
 }
