@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('image')->default('./resources/images/user-circle-solid.svg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->longText('about_me')->nullable();
