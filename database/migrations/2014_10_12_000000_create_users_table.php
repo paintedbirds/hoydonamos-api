@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('image')->default('./resources/images/user-circle-solid.svg');
+            $table->string('image')->default('https://res.cloudinary.com/che-hoy-donamos/image/upload/v1632855893/Usuarios/user-default_y9f0uh.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->longText('about_me')->nullable();
