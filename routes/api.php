@@ -20,8 +20,6 @@ use App\Http\Controllers\FileUploadController;
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/upload', [FileUploadController::class, 'storeUploads']);
-
 
 // Protected Routes
  Route::group(['middleware' => ['auth:sanctum']], function () {
