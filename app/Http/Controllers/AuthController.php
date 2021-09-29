@@ -63,7 +63,7 @@ class AuthController extends Controller
     $fields = $request->validate([
         'name' => 'required|string',
         'email' => 'required|email  ',
-        'phone' => 'integer',
+        'phone' => 'string',
         'about_me' => 'string',
     ]);
 
