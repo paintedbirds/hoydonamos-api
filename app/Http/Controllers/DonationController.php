@@ -49,14 +49,16 @@ class DonationController extends Controller
 
         $user = Auth::user();
 
-        $request->image->store('donations', 'public');
+        $response = cloudinary()->upload($request->file('image')->getRealPath(), [
+            'folder' => 'Donaciones'
+        ])->getSecurePath();
 
         $donation = new Donation([
             "name" => $request->get('name'),
             "description" => $request->get('description'),
-            "image" => asset('/storage/donations/'.$request->image->hashName()),
+            "image" => asset($response),
         ]);
-
+        
         $donation->user()->associate($user);
         $donation->save();
         
