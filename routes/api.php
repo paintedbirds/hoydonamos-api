@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonationRequestController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\FileUploadController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +20,6 @@ use App\Http\Controllers\AuthController;
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-
 
 // Protected Routes
  Route::group(['middleware' => ['auth:sanctum']], function () {
