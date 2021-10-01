@@ -23,16 +23,17 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Protected Routes
  Route::group(['middleware' => ['auth:sanctum']], function () {
+     //donatios routes
     Route::get('/donations/{search?}', [DonationController::class, 'index']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
     Route::post('/donations/{id}/requests', [DonationRequestController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
-
-    Route::post('/logout', [AuthController::class, 'logout']);
+    //user routes
+    Route::post('/users/{id}', [AuthController::class, 'update']);
+    Route::post('/logout', [AuthController::class, 'logout']); //log out user
 });
-
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -58,10 +58,26 @@ class AuthController extends Controller
 
         return response($response, 200);
     }
+    public function update(Request $request, $id)
+{
+        $fields = $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|email  ',
+        'phone' => 'string',
+        'about_me' => 'string',
+        'image' => 'image',
+    ]);
+    $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
+   
+    $fields['image'] = $response;    
+    $user = User::find($id);
+    $user->update($fields);
+    
+    return $user;   
+}
 
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
-
         return [
             'message' => 'Se ha cerrarado sesion correctamente'
         ];
