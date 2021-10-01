@@ -65,10 +65,14 @@ class AuthController extends Controller
         'email' => 'required|email  ',
         'phone' => 'string',
         'about_me' => 'string',
+        'image' => 'image',
     ]);
     $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
+   
+    $fields['image'] = $response;    
     $user = User::find($id);
     $user->update($fields);
+    
     return $user;   
 }
 
