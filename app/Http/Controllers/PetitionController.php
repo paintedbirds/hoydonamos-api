@@ -13,13 +13,8 @@ class PetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($search = null)
+    public function index()
     {
-        if(!is_null()){
-            return Petition::where('subject', 'like','%'.$search.'%')
-            ->where('state', 'PUBLISHED')
-            ->paginate(10);
-        }
         return Petition::where('state', 'PUBLISHED')->paginate(10);
     }
 

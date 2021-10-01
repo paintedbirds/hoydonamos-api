@@ -1,16 +1,90 @@
 {
 	"info": {
-		"_postman_id": "fbfc1e52-f495-443a-a3ab-f4e7b08029e4",
+		"_postman_id": "a6cc4e0d-672f-4a62-8043-1a7ffe04588f",
 		"name": "Proyecto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Donations-endpoint",
+			"name": "Donation_Request",
 			"item": [
 				{
-					"name": "get-donations",
+					"name": "request",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|GbRSJV7EwLPNWHNQ3z0FmduFcVnZCkHLd2H586Q8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jugete de Boz Light year",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Esto sera un juegete que no es un uegete segun Buffy",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "Capture001.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/donations",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"donations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Donation",
+			"item": [
+				{
+					"name": "donations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|GbRSJV7EwLPNWHNQ3z0FmduFcVnZCkHLd2H586Q8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -38,14 +112,14 @@
 					"response": []
 				},
 				{
-					"name": "create-donation",
+					"name": "donation",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|mYActb29gLfr3pTZY58BQ6UdWnyCIaikKE9U9NMo",
+									"value": "2|RsdmBkbpuH1SbZBFg1px1R3yQqbKoQq5iCyLRTI7\n",
 									"type": "string"
 								}
 							]
@@ -59,22 +133,22 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
-									"value": "Heladera",
+									"value": "Jugete de Boz Light year",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Dono una Heladera lista para uso.",
+									"value": "Esto sera un juegete que no es un uegete segun Buffy",
 									"type": "text"
 								},
 								{
-									"key": "tags",
-									"value": "Electrodomesticos",
-									"type": "text"
+									"key": "image",
+									"type": "file",
+									"src": "Capture001.png"
 								}
 							]
 						},
@@ -97,18 +171,8 @@
 					"response": []
 				},
 				{
-					"name": "update-donation",
+					"name": "donation",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|mYActb29gLfr3pTZY58BQ6UdWnyCIaikKE9U9NMo",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [
 							{
@@ -122,7 +186,7 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Horno Electrico",
+									"value": "Donation-three",
 									"type": "text"
 								},
 								{
@@ -140,7 +204,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/donations/1",
+							"raw": "http://127.0.0.1:8000/api/donations/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -152,49 +216,55 @@
 							"path": [
 								"api",
 								"donations",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get-one-donation-by-id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/donations/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"donations",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete-donation",
+					"name": "donation-by-id",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|mYActb29gLfr3pTZY58BQ6UdWnyCIaikKE9U9NMo",
+									"value": "2|1qKc1xq5vrJxQ9WIvbkrOgXy2ejYYFaCxYCclo9R",
 									"type": "string"
 								}
 							]
 						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/donation/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"donation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "donation",
+					"request": {
 						"method": "DELETE",
 						"header": [
 							{
@@ -209,8 +279,7 @@
 								{
 									"key": "name",
 									"value": "Donation-three",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "description",
@@ -227,7 +296,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/donations/1",
+							"raw": "http://127.0.0.1:8000/api/donations/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -239,15 +308,25 @@
 							"path": [
 								"api",
 								"donations",
-								"1"
+								"4"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get-donation-by-name",
+					"name": "donation-by-name",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|aAZZE7UiMt8kL4qNpgZt5S45oOTfUsY0eOjHyc6s",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -257,7 +336,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/donations/search/Iphone",
+							"raw": "http://127.0.0.1:8000/api/donations/AkZb",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -269,8 +348,7 @@
 							"path": [
 								"api",
 								"donations",
-								"search",
-								"Iphone"
+								"AkZb"
 							]
 						}
 					},
@@ -279,8 +357,91 @@
 			]
 		},
 		{
-			"name": "Auth-endpoint",
+			"name": "Auth-User",
 			"item": [
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|UqMrI7i8nCEzsNulbiYrKneMpuy0acGpB00RyHKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Alejandro",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ale@example.com",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "Capture001.png"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "about_me",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "register",
 					"request": {
@@ -302,7 +463,7 @@
 								},
 								{
 									"key": "email",
-									"value": "brad@gmail.com",
+									"value": "bradoma@gmail.com",
 									"type": "text"
 								},
 								{
@@ -357,7 +518,7 @@
 								},
 								{
 									"key": "email",
-									"value": "brad@gmail.com",
+									"value": "bradom@gmail.com",
 									"type": "text"
 								},
 								{
@@ -399,7 +560,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|mYActb29gLfr3pTZY58BQ6UdWnyCIaikKE9U9NMo",
+									"value": "1|2eWM4gLTIOKfQmmkubP8BruFsnm8VonMs2QV8u4p",
 									"type": "string"
 								}
 							]
@@ -418,20 +579,17 @@
 								{
 									"key": "name",
 									"value": "Brand",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "email",
 									"value": "brad@gmail.com",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password",
 									"value": "123456",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password_confirmation",
@@ -459,6 +617,115 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Petitions",
+			"item": [
+				{
+					"name": "petition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|BkG2rfngmn0Q3SXi209418jWUmdtGV65Y4NfISS7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/petitions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"petitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "petition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|RsdmBkbpuH1SbZBFg1px1R3yQqbKoQq5iCyLRTI7\n",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jugete de Boz Light year",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Esto sera un juegete que no es un uegete segun Buffy",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "Capture001.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/donations",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"donations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "usermail",
+			"value": "ale@gmail.com"
 		}
 	]
 }

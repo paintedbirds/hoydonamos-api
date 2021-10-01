@@ -27,7 +27,7 @@ class PetitionFactory extends Factory
         return [
             'user_id' => User::all()->random()->id,
             'subject' => Str::random(10),
-            'description' => Str::random(20),
+            'description' => Str::random(50),
             'state' =>  $state[rand(0,2)],
         ];
     }

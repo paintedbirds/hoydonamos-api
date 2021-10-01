@@ -5,6 +5,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonationRequestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\PetitionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,11 +31,12 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::post('/donations/{id}/requests', [DonationRequestController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
+    //petitions routes
+    Route::get('/petitions', [PetitionController::class, 'index']);
+    Route::get('/petition/{id}', [PetitionController::class, 'show']);
+    Route::post('/petitions', [PetitionController::class, 'store']);
+    Route::delete('/petitions/{id}', [PetitionController::class, 'destroy']);
     //user routes
     Route::post('/users/{id}', [AuthController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
-});
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
 });
