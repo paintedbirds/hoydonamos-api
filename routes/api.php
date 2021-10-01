@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
     //user routes
-    Route::put('/users/{id}', [AuthController::class, 'update']);
+    Route::post('/users/{id}', [AuthController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
 });
 

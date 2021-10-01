@@ -60,13 +60,13 @@ class AuthController extends Controller
     }
     public function update(Request $request, $id)
 {
-    $fields = $request->validate([
+        $fields = $request->validate([
         'name' => 'required|string',
         'email' => 'required|email  ',
         'phone' => 'string',
         'about_me' => 'string',
     ]);
-
+    $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
     $user = User::find($id);
     $user->update($fields);
     return $user;   
