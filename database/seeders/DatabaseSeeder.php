@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DonationSeeder::class,
             DonationRequestSeeder::class,
+            PetitionSeeder::class,
         ]);  
     }
 }

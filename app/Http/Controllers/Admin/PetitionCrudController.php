@@ -40,8 +40,9 @@ class PetitionCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('id');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::column('user_id');
+        CRUD::column('subject');
+        CRUD::column('state');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
