@@ -51,10 +51,9 @@ Ejemplo de una endpoint con paginacion :
 ```
 
 ---
-## Implementacion de Cloudinary
+## Alojamiento de imagenes
 
-Para el almacenamiento y control de de imagenes para las donaciones y usuarios se decicdio utilizar el servicio de [Cloudinary](https://cloudinary.com/), este guarda todos los archivos dentro de la nube para no tener que almacenarlas dentro de un servicio local.
-
+Para el almacenamiento y control de imagenes se decicdio utilizar el servicio de [Cloudinary](https://cloudinary.com/), este guarda los archivos dentro de la nube, evitando asi tener que alojarlos en nuestro `storage` local.
 ---
 
 ## Levantar el servicio localmente
