@@ -40,8 +40,9 @@ class PetitionCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('id');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::column('user_id');
+        CRUD::column('subject');
+        CRUD::column('state');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,10 +61,19 @@ class PetitionCrudController extends CrudController
     {
         CRUD::setValidation(PetitionRequest::class);
 
-        CRUD::field('id');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+        CRUD::field('subject');
+        CRUD::field('description');
+        CRUD::field('state');
 
+        /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         */
+    }
+    protected function updateState()
+    {
+        CRUD::field('state');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -79,6 +89,6 @@ class PetitionCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateState();
     }
 }

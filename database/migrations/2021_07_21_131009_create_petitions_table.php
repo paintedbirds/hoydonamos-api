@@ -15,6 +15,10 @@ class CreatePetitionsTable extends Migration
     {
         Schema::create('petitions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('subject');
+            $table->string('description');
+            $table->enum('state', ['PENDING', 'PUBLISHED', 'REJETCTED'])->default('PENDING');
             $table->timestamps();
         });
     }

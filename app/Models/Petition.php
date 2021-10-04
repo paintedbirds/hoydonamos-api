@@ -9,4 +9,12 @@ class Petition extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
+    protected $fillable = [
+        'subject',
+        'description',
+        ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

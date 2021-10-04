@@ -43,6 +43,8 @@ class DonationRequestCrudController extends CrudController
         CRUD::column('user_id');
         CRUD::column('donation_id');
         CRUD::column('reason');
+        CRUD::column('state');
+
     }
 
     /**

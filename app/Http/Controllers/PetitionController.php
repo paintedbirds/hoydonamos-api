@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Petition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PetitionController extends Controller
 {
@@ -14,7 +15,7 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        //
+        return Petition::where('state', 'PUBLISHED')->paginate(10);
     }
 
     /**
@@ -35,7 +36,22 @@ class PetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'subject' => 'required',
+            'description' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        $petition = new Petition([
+            "subject" => $request->get('subject'),
+            "description" => $request->get('description'),
+        ]);
+        
+        $petition->user()->associate($user);
+        $petition->save();
+        
+        return $petition;
     }
 
     /**
@@ -44,9 +60,9 @@ class PetitionController extends Controller
      * @param  \App\Models\Petition  $petition
      * @return \Illuminate\Http\Response
      */
-    public function show(Petition $petition)
+    public function show($id)
     {
-        //
+        return Donation::find($id);
     }
 
     /**
@@ -67,9 +83,11 @@ class PetitionController extends Controller
      * @param  \App\Models\Petition  $petition
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Petition $petition)
+    public function update(Request $request, $id)
     {
-        //
+        $petition = Petition::find($id);
+        $petition->update($request->all());
+        return $petition;
     }
 
     /**
@@ -80,6 +98,6 @@ class PetitionController extends Controller
      */
     public function destroy(Petition $petition)
     {
-        //
+        return Petition::destroy($id);
     }
 }
