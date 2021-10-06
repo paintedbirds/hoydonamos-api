@@ -23,12 +23,12 @@ class PetitionFactory extends Factory
      */
     public function definition()
     {
-        $state = ['PENDING', 'PUBLISHED', 'REJETCTED'];
+        $state = ['PUBLISHED', 'REJETCTED'];
         return [
             'user_id' => User::all()->random()->id,
             'subject' => Str::random(10),
             'description' => Str::random(50),
-            'state' =>  $state[rand(0,2)],
+            'state' =>  $state[rand(0,1)],
         ];
     }
 }
