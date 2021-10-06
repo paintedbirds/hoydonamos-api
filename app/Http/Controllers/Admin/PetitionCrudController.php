@@ -63,6 +63,7 @@ class PetitionCrudController extends CrudController
 
         CRUD::field('subject');
         CRUD::field('description');
+        CRUD::field('user_id');        
         CRUD::field('state');
 
         /**
