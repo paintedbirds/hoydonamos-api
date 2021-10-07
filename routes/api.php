@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonationRequestController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\PetitionController;
 /*
@@ -21,7 +22,8 @@ use App\Http\Controllers\PetitionController;
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-
+Route::post('/admin/register', [AdminController::class, 'register']);
+Route::post('/admin/login', [AdminController::class, 'login']);
 // Protected Routes
  Route::group(['middleware' => ['auth:sanctum']], function () {
      //donatios routes
@@ -39,4 +41,10 @@ Route::post('/login', [AuthController::class, 'login']);
     //user routes
     Route::post('/users/{id}', [AuthController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
+});
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', function(){
+        return 'succes admin auth';
+    });
 });
