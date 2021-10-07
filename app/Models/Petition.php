@@ -13,6 +13,13 @@ class Petition extends Model
         'subject',
         'description',
         ];
+    protected $with = ['user'];
+    
+    /**
+     * Functions of each model
+     * 
+     * - user() # each petition has an user
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
