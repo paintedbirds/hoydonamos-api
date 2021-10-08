@@ -41,10 +41,5 @@ Route::post('/admin/login', [AdminController::class, 'login']);
     //user routes
     Route::post('/users/{id}', [AuthController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
-});
 
-Route::group(['middleware' => 'admin'], function () {
-    Route::get('/admin', function(){
-        return 'succes admin auth';
-    });
 });
