@@ -61,19 +61,21 @@ class AuthController extends Controller
     public function update(Request $request, $id)
 {
         $fields = $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|email  ',
-        'phone' => 'string',
-        'about_me' => 'string',
-        'image' => 'image',
-    ]);
-    $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
-   
-    $fields['image'] = $response;    
-    $user = User::find($id);
-    $user->update($fields);
-    
-    return $user;   
+            'name' => 'required|string',
+            'email' => 'required|email  ',
+            'phone' => 'string',
+            'about_me' => 'string',
+            'image' => 'nullable|image',
+        ]);
+        if ($request->image) {
+            $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
+            $fields['image'] = $response;
+        }
+        $user = User::find($id);
+        $user->update($fields);
+        
+        return $user;   
+
 }
 
     public function logout(Request $request) {
