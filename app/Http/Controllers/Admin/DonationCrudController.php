@@ -38,6 +38,8 @@ class DonationCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->crud->denyAccess(['create']);
+
         CRUD::column('id');
         CRUD::column('user_id');
         CRUD::column('name');
