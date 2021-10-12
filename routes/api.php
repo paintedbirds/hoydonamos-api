@@ -22,8 +22,6 @@ use App\Http\Controllers\PetitionController;
 // Login and Register public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/admin/register', [AdminController::class, 'register']);
-Route::post('/admin/login', [AdminController::class, 'login']);
 // Protected Routes
  Route::group(['middleware' => ['auth:sanctum']], function () {
      //donatios routes
