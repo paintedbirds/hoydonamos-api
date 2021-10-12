@@ -79,7 +79,8 @@ class PetitionCrudController extends CrudController
             'name' => 'state',
             'label' => 'State',
             'type' => 'enum', 
-        ]);        /**
+        ]);       
+         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 

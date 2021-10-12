@@ -67,7 +67,19 @@ class DonationRequestCrudController extends CrudController
          * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
          */
     }
-
+    protected function updateState()
+    {
+        $this->crud->addField([
+            'name' => 'state',
+            'label' => 'State',
+            'type' => 'enum', 
+        ]);       
+         /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         */
+    }
     /**
      * Define what happens when the Update operation is loaded.
      * 
@@ -76,6 +88,6 @@ class DonationRequestCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateState();
     }
 }
