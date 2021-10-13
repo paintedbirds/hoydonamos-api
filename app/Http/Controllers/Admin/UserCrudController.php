@@ -39,6 +39,8 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->crud->denyAccess(['create']);
+
         CRUD::column('name');
         CRUD::column('email');
 
