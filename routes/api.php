@@ -38,6 +38,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::delete('/petitions/{id}', [PetitionController::class, 'destroy']);
     //user routes
     Route::post('/users/{id}', [AuthController::class, 'update']);
+    Route::get('/users/{id}', [AuthController::class, 'show']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
 
 });
