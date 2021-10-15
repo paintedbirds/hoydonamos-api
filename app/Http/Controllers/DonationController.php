@@ -109,6 +109,7 @@ class DonationController extends Controller
      */
     public function destroy($id)
     {
-        return Donation::destroy($id);
+        $donation = Donation::find($id);
+        return  $donation->delete();
     }
 }
