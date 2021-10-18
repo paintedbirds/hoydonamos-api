@@ -39,12 +39,22 @@ class DonationCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->denyAccess(['create']);
-
+        $this->crud->addFilter([
+            'name'  => 'state',
+            'type'  => 'dropdown',
+            'label' => 'State'
+          ], [
+            'pending' => 'PENDING',
+            'rejected' => 'REJETCTED',
+            'published' => 'PUBLISHED',
+          ], function($value) {
+            $this->crud->addClause('where', 'state', $value);
+          });
         CRUD::column('id');
         CRUD::column('user_id');
         CRUD::column('name');
         CRUD::column('description');
-        CRUD::column('image');
+        CRUD::column('state');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

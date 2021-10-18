@@ -40,6 +40,18 @@ class PetitionCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->denyAccess(['create']);
+        $this->crud->addFilter([
+            'name'  => 'state',
+            'type'  => 'dropdown',
+            'label' => 'State'
+          ], [
+            'rejected' => 'REJETCTED',
+            'published' => 'PUBLISHED',
+          ], function($value) {
+            $this->crud->addClause('where', 'state', $value);
+          });
+          
+        $this->crud->denyAccess(['create']);
         CRUD::column('id');
         CRUD::column('user_id');
         CRUD::column('subject');
