@@ -24,7 +24,7 @@ class DonationFactory extends Factory
      */
     public function definition()
     {
-        $state = ['PENDING', 'PUBLISHED', 'REJETCTED'];
+        $state = ['PENDING', 'PUBLISHED', 'REJECTED'];
 
         return [
             'user_id' => User::all()->random()->id,

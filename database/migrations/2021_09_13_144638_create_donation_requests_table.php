@@ -18,7 +18,7 @@ class CreateDonationRequestsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('donation_id')->constrained();
             $table->string('reason');
-            $table->enum('state', ['ACCEPTED', 'REJETCTED', 'PENDING'])->default('PENDING');
+            $table->enum('state', ['ACCEPTED', 'REJECTED', 'PENDING'])->default('PENDING');
             $table->timestamps();
         });
     }

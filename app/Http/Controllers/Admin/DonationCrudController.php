@@ -45,7 +45,7 @@ class DonationCrudController extends CrudController
             'label' => 'State'
           ], [
             'pending' => 'PENDING',
-            'rejected' => 'REJETCTED',
+            'rejected' => 'REJECTED',
             'published' => 'PUBLISHED',
           ], function($value) {
             $this->crud->addClause('where', 'state', $value);
