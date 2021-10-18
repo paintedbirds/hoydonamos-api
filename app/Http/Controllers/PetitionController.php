@@ -96,8 +96,9 @@ class PetitionController extends Controller
      * @param  \App\Models\Petition  $petition
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Petition $petition)
+    public function destroy($id)
     {
-        return Petition::destroy($id);
+        $donation = Donation::find($id);
+        return  $donation->delete();    
     }
 }

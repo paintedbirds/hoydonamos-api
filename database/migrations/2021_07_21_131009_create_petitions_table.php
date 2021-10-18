@@ -19,6 +19,7 @@ class CreatePetitionsTable extends Migration
             $table->string('subject');
             $table->string('description');
             $table->enum('state', ['PUBLISHED', 'REJETCTED'])->default('PUBLISHED');
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

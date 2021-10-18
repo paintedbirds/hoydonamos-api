@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::post('/donations/{id}/requests', [DonationRequestController::class, 'store']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
-    //petitions routes
+    //petitions routes  
     Route::get('/petitions', [PetitionController::class, 'index']);
     Route::get('/petition/{id}', [PetitionController::class, 'show']);
     Route::post('/petitions', [PetitionController::class, 'store']);
