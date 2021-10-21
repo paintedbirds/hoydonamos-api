@@ -45,7 +45,7 @@ class PetitionCrudController extends CrudController
             'type'  => 'dropdown',
             'label' => 'State'
           ], [
-            'rejected' => 'REJETCTED',
+            'rejected' => 'REJECTED',
             'published' => 'PUBLISHED',
           ], function($value) {
             $this->crud->addClause('where', 'state', $value);
