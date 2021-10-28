@@ -62,7 +62,7 @@ class PetitionController extends Controller
      */
     public function show($id)
     {
-        return Donation::find($id);
+        return Petition::find($id);
     }
 
     /**
@@ -98,7 +98,7 @@ class PetitionController extends Controller
      */
     public function destroy($id)
     {
-        $donation = Donation::find($id);
-        return  $donation->delete();    
+        $petition = Petition::find($id);
+        return  $petition->delete();    
     }
 }
