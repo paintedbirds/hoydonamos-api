@@ -24,10 +24,9 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Che, ¿Hoy donamos?',
+    'project_name' => 'Backpack Admin Panel',
 
     // When clicking on the admin panel's top-left logo/name,
-
     // where should the user be redirected?
     // The string below will be passed through the url() helper.
     // - default: '' (project root)
@@ -43,7 +42,8 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'packages/backpack/base/css/bundle.css',
+        'packages/backpack/base/css/bundle.css', // has primary color electric purple (backpack default)
+        // 'packages/backpack/base/css/blue-bundle.css', // has primary color blue
 
         // Here's what's inside the bundle:
         // 'packages/@digitallyhappy/backstrap/css/style.min.css',
@@ -72,7 +72,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Admin</b>Panel',
+    'project_logo'   => '<b>Back</b>pack',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
@@ -106,10 +106,10 @@ return [
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Che, ¿Hoy donamos?',
+    'developer_name' => 'Che, ¿Hoy Donamos?',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'chehoydonamos.com.uy',
+    'developer_link' => 'https://github.com/Anima-Tec/2021_Proyecto_Integrador_Equipo_3-Backend',
 
     // Show powered by Laravel Backpack in the footer? true/false
     'show_powered_by' => true,
@@ -194,10 +194,6 @@ return [
     // Warning: if you disable this, the password recovery routes (below) will be disabled too!
     'setup_auth_routes' => true,
 
-    // Set this to false if you would like to skip adding the password recovery routes
-    // (you then need to manually define the routes in your web.php)
-    'setup_password_recovery_routes' => true,
-
     // Set this to false if you would like to skip adding the dashboard routes
     // (you then need to overwrite the login route on your AuthController)
     'setup_dashboard_routes' => true,
@@ -205,6 +201,32 @@ return [
     // Set this to false if you would like to skip adding "my account" routes
     // (you then need to manually define the routes in your web.php)
     'setup_my_account_routes' => true,
+
+    // Set this to false if you would like to skip adding the password recovery routes
+    // (you then need to manually define the routes in your web.php)
+    'setup_password_recovery_routes' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Security
+    |--------------------------------------------------------------------------
+    */
+
+    // Backpack will prevent visitors from requesting password recovery too many times
+    // for a certain email, to make sure they cannot be spammed that way.
+    // How many seconds should a visitor wait, after they've requested a
+    // password reset, before they can try again for the same email?
+    'password_recovery_throttle_notifications' => 600, // time in seconds
+
+    // Backpack will prevent an IP from trying to reset the password too many times,
+    // so that a malicious actor cannot try too many emails, too see if they have
+    // accounts or to increase the AWS/SendGrid/etc bill.
+    //
+    // How many times in any given time period should the user be allowed to
+    // attempt a password reset? Take into account that user might wrongly
+    // type an email at first, so at least allow one more try.
+    // Defaults to 3,10 - 3 times in 10 minutes.
+    'password_recovery_throttle_access' => '3,10',
 
     /*
     |--------------------------------------------------------------------------
@@ -215,7 +237,7 @@ return [
     // Fully qualified namespace of the User model
     //'user_model_fqn' => config('auth.providers.users.model'),
     // 'user_model_fqn' => App\User::class, // works on Laravel <= 7
-    'user_model_fqn' => App\Models\Admin::class, // works on Laravel >= 8
+     'user_model_fqn' => App\Models\Admin::class, // works on Laravel >= 8
 
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of classes
