@@ -13,11 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            DonationSeeder::class,
-            DonationRequestSeeder::class,
-            PetitionSeeder::class,
-        ]);  
+        if (App::environment('production')) {
+            $this->call(AdminSeeder::class);
+        } else {
+            $this->call([
+                UserSeeder::class,
+                AdminSeeder::class,
+                DonationSeeder::class,
+                DonationRequestSeeder::class,
+                PetitionSeeder::class,
+            ]);  
+        }
+
     }
 }
