@@ -29,7 +29,7 @@ class AuthController extends Controller
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
-            'user' => $user,
+            'user' => $user->where('email', $user->email)->first(),
             'token' => $token
         ];
         $mail = new MailerAuth($user->name);
