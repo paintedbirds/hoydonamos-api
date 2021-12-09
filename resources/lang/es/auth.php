@@ -14,5 +14,5 @@
 return [
     'failed'   => 'Credenciales incorrectas',
     'password' => 'Contraseña incorrecta',
-    'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
+    'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos',
 ];
