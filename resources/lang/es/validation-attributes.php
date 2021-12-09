@@ -24,7 +24,7 @@ return [
         'month'                 => 'mes',
         'name'                  => 'nombre',
         'password'              => 'contraseña',
-        'password_confirmation' => 'confirmación de la contraseña',
+        'password_confirmation' => 'confirmación de contraseña',
         'phone'                 => 'teléfono',
         'photo'                 => 'foto',
         'price'                 => 'precio',
