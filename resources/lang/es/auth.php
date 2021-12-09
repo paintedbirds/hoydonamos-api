@@ -13,6 +13,6 @@
 
 return [
     'failed'   => 'Credenciales incorrectas',
-    'password' => 'La contraseña ingresada no es correcta.',
+    'password' => 'Contraseña incorrecta',
     'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
 ];
