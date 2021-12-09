@@ -41,3 +41,4 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::get('/users/{id}', [AuthController::class, 'show']);
     Route::post('/logout', [AuthController::class, 'logout']); //log out user
 });
+
