@@ -18,6 +18,8 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
+use App\Orchid\Screens\DonationEditScreen;
+use App\Orchid\Screens\DonationListScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -113,3 +115,11 @@ Route::screen('example-cards', ExampleCardsScreen::class)->name('platform.exampl
 Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
 
 //Route::screen('idea', 'Idea::class','platform.screens.idea');
+
+
+
+Route::screen('donation/{donation?}', DonationEditScreen::class)
+    ->name('platform.donation.edit');
+
+Route::screen('/donations', DonationListScreen::class)
+    ->name('platform.donation.list');

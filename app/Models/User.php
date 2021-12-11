@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Orchid\Platform\Models\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
+      use HasFactory, Notifiable, HasApiTokens;
     /**
      * The attributes that are mass assignable.
      *
@@ -15,6 +20,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'about_me',
+        'phone',
+        'image',
         'permissions',
     ];
 
