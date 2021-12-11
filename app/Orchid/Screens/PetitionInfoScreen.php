@@ -58,15 +58,9 @@ class PetitionInfoScreen extends Screen
     public function commandBar(): array
     {
         return [
-
-            Button::make('Guardar cambios')
-                ->icon('pencil')
-                ->method('UpdateState'),
-
             Button::make('Delete')
                 ->icon('trash')
                 ->method('remove'),
-
         ];
     }
 
@@ -81,17 +75,7 @@ class PetitionInfoScreen extends Screen
              Layout::legend('petition', [
                 Sight::make('id')->popover('Numero identificativo de la donacion en el sistema'),
                 Sight::make('description')->popover('Descripción de la donacion'),
-                Sight::make('state')->popover('Estado de la donacion'),
                 Sight::make('created_at')->popover('Fecha de creacion de la donacion'),
-            ]),
-            Layout::rows([
-                Select::make('petition.state')
-                    ->options([
-                        'pending' => 'PENDING',
-                        'rejected' => 'REJETCTED',
-                        'published' => 'PUBLISHED',
-                    ])->title('Estado')
-                    ->help('Cambia el estado de una donacion')
             ]),
             Layout::legend('petition.user', [
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
@@ -100,19 +84,6 @@ class PetitionInfoScreen extends Screen
             ]),
         ];
     }
-
-    /**
-     * @param Petition    $petition
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function UpdateState(Petition $petition, Request $request)
-    {
-        $petition->fill($request->get('petition'))->save();
-        Alert::info('Has actualizado correactamente el estado!');
-    }
-
     /**
      * @param petition $petition
      *

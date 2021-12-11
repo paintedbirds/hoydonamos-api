@@ -27,15 +27,13 @@ class PetitionListLayout extends Table
     {
         return [
             TD::make('id', 'ID'),
-            TD::make('subject', 'Titulo de la peticiones')
+            TD::make('user.name', 'Usuario'),
+            TD::make('subject', 'Titulo de la Peticion')
             ->sort(),
             TD::make('description', 'Descripción')->width('250')
                     ->render(function (Petition $petition) {
                         return Str::limit($petition['description'], 100);
                     }),
-            TD::make('state', 'Estado')
-            ->filter(TD::FILTER_TEXT)
-            ->sort(),
             TD::make('')
                 ->render(function (Petition $petition) {
                     return Link::make('Ver mas')->icon('doc')->route('platform.petition.edit', $petition);
