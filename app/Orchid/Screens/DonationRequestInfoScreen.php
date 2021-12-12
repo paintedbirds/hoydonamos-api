@@ -58,6 +58,9 @@ class DonationRequestInfoScreen extends Screen
     public function commandBar(): array
     {
         return [
+            Button::make('Guardar cambios')
+                ->icon('pencil')
+                ->method('UpdateState'),
             Button::make('Delete')
                 ->icon('trash')
                 ->method('remove'),
@@ -77,6 +80,15 @@ class DonationRequestInfoScreen extends Screen
                 Sight::make('reason')->popover('Descripción de la Solicitud de una Donacion'),
                 Sight::make('state')->popover('Estado de la Solicitud de una Donacion'),
                 Sight::make('created_at')->popover('Fecha de creacion de la Solicitud de una Donacion'),
+            ]),
+             Layout::rows([
+                Select::make('donationRequest.state')
+                    ->options([
+                        'pending' => 'PENDING',
+                        'accepted' => 'ACCEPTED',
+                        'rejected' => 'REJETCTED',
+                    ])->title('Estado')
+                    ->help('Cambia el estado de una donacion')
             ]),
             Layout::legend('donationRequest.user', [
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
@@ -98,6 +110,12 @@ class DonationRequestInfoScreen extends Screen
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
+     public function UpdateState(DonationRequest $donationRequest, Request $request)
+    {
+        $donationRequest->fill($request->get('donationRequest'))->save();
+        Alert::info('Has actualizado correactamente el estado!');
+    }
+
     public function remove(DonationRequest $donationRequest)
     {
         $donationRequest->delete();
