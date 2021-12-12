@@ -29,7 +29,7 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
 
-            Menu::make('See Donations')
+            Menu::make('Ver Donaciones')
                 ->title('Donations')
                 ->icon('heart')
                 ->route('platform.donation.list'),
@@ -38,6 +38,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title('Solicitudes')
                 ->icon('star')
                 ->route('platform.petition.list'),
+            Menu::make('Ver Solicitudes de Donaciones')
+                ->title('Solicitudes Donaciones')
+                ->icon('people')
+                ->route('platform.donationRequest.list'),
         ];
 
     }
