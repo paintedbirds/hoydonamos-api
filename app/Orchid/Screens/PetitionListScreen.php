@@ -29,7 +29,7 @@ class PetitionListScreen extends Screen
      */
     public function query(): array
     {
-        $petitions = Petition::filters()->defaultSort('')->paginate(10);
+        $petitions = Petition::filters()->defaultSort('state')->paginate(10);
 
         return [
             'petitions' => $petitions
