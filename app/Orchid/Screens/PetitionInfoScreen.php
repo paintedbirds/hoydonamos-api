@@ -73,12 +73,12 @@ class PetitionInfoScreen extends Screen
     {
         return [
              Layout::legend('petition', [
-                Sight::make('id')->popover('Numero identificativo de la donacion en el sistema'),
-                Sight::make('description')->popover('Descripción de la donacion'),
-                Sight::make('created_at')->popover('Fecha de creacion de la donacion'),
+                Sight::make('id')->popover('Numero identificativo de la peticion en el sistema'),
+                Sight::make('description')->popover('Descripción de la peticion '),
+                Sight::make('created_at')->popover('Fecha de creacion de la peticion '),
             ]),
             Layout::legend('petition.user', [
-                Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
+                Sight::make('id')->popover('Numero identificativo del usuario que creo la peticion en el sistema'),
                 Sight::make('name')->popover('Nombre del usuario'),
                 Sight::make('email')->popover('Correo electronico del usuario'),
             ]),
