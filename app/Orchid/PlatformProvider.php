@@ -33,8 +33,13 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title('Donations')
                 ->icon('heart')
                 ->route('platform.donation.list'),
+
+            Menu::make('Ver Solicitudes')
+                ->title('Solicitudes')
+                ->icon('star')
+                ->route('platform.petition.list'),
         ];
-        
+
     }
 
     /**

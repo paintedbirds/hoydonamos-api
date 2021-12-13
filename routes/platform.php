@@ -20,6 +20,8 @@ use Tabuna\Breadcrumbs\Trail;
 
 use App\Orchid\Screens\DonationEditScreen;
 use App\Orchid\Screens\DonationListScreen;
+use App\Orchid\Screens\PetitionInfoScreen;
+use App\Orchid\Screens\PetitionListScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -116,10 +118,14 @@ Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('pla
 
 //Route::screen('idea', 'Idea::class','platform.screens.idea');
 
-
-
 Route::screen('donation/{donation?}', DonationEditScreen::class)
     ->name('platform.donation.edit');
 
 Route::screen('/donations', DonationListScreen::class)
     ->name('platform.donation.list');
+
+Route::screen('petition/{donation?}', PetitionInfoScreen::class)
+        ->name('platform.petition.edit');
+
+Route::screen('/petitions', PetitionListScreen::class)
+        ->name('platform.petition.list');
