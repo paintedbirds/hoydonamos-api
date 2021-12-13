@@ -11,7 +11,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Authenticatable
 {
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory, Notifiable, HasApiTokens;
 
     /**
