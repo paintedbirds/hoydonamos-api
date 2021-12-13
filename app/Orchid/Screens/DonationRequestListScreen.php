@@ -1,26 +1,26 @@
 <?php
 namespace App\Orchid\Screens;
 
-use App\Orchid\Layouts\PetitionListLayout;
-use App\Models\petition;
+use App\Orchid\Layouts\DonationRequestListLayout;
+use App\Models\donationRequest;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
-class PetitionListScreen extends Screen
+class  DonationRequestListScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Peticiones';
+    public $name = ' Donaciones Solicitadas';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Todas las Peticiones listadas';
+    public $description = 'Todas las Donaciones Solicitadas listadas';
 
     /**
      * Query data.
@@ -29,10 +29,10 @@ class PetitionListScreen extends Screen
      */
     public function query(): array
     {
-        $petitions = Petition::filters()->defaultSort('state')->paginate(10);
+        $donationRequests =  DonationRequest::filters()->defaultSort('state')->paginate(10);
 
         return [
-            'petitions' => $petitions
+            'donationRequests' => $donationRequests
         ];
     }
 
@@ -54,7 +54,7 @@ class PetitionListScreen extends Screen
     public function layout(): array
     {
         return [
-            PetitionListLayout::class
+            DonationRequestListLayout::class
         ];
     }
 }

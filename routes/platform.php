@@ -22,6 +22,9 @@ use App\Orchid\Screens\DonationEditScreen;
 use App\Orchid\Screens\DonationListScreen;
 use App\Orchid\Screens\PetitionInfoScreen;
 use App\Orchid\Screens\PetitionListScreen;
+use App\Orchid\Screens\DonationRequestListScreen;
+use App\Orchid\Screens\DonationRequestInfoScreen;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -129,3 +132,9 @@ Route::screen('petition/{donation?}', PetitionInfoScreen::class)
 
 Route::screen('/petitions', PetitionListScreen::class)
         ->name('platform.petition.list');
+
+Route::screen('donationRequest/{donationRequest?}', DonationRequestInfoScreen::class)
+        ->name('platform.donationRequest.edit');
+
+Route::screen('/donationRequests', DonationRequestListScreen::class)
+        ->name('platform.donationRequest.list');

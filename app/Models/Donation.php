@@ -30,6 +30,7 @@ class Donation extends Model
         'name',
         'state',
     ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);
