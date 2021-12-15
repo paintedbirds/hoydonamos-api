@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Petition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Mail\PetitionCreated;
+use App\Mail\MailerAuth;
+use Illuminate\Support\Facades\Mail;
 class PetitionController extends Controller
 {
     /**
@@ -49,8 +51,11 @@ class PetitionController extends Controller
         ]);
         
         $petition->user()->associate($user);
+
         $petition->save();
-        
+
+        Mail::to($user['email'])->send(new PetitionCreated($request));
+
         return $petition;
     }
 
