@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1>Has creado una Dpnacion exitosamente!</h1>
+    <h1>Has creado una Donacion exitosamente!</h1>
     <span>Gracias por aportar a la comunidad</span>
     <h2>Nombre de la Donacion: {{$donationData['name']}}</h2>
     <h2>Descripcion de la Donacion: {{$donationData['description']}}</h2>
