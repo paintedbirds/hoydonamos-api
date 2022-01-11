@@ -15,15 +15,13 @@ class PlatformScreen extends Screen
      *
      * @var string
      */
-    public $name = 'Get Started';
-
+    public $name = 'Home Admin Panel';
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Welcome to your Orchid application.';
-
+    public $description = 'Bienvenido al Admin Panel, gestor de datos de la aplicacion "Che, ¿ Hoy donamos ?"';
     /**
      * Query data.
      *
@@ -43,16 +41,8 @@ class PlatformScreen extends Screen
     {
         return [
             Link::make('Website')
-                ->href('http://orchid.software')
+                ->href(env('URL_WEB'))
                 ->icon('globe-alt'),
-
-            Link::make('Documentation')
-                ->href('https://orchid.software/en/docs')
-                ->icon('docs'),
-
-            Link::make('GitHub')
-                ->href('https://github.com/orchidsoftware/platform')
-                ->icon('social-github'),
         ];
     }
 
@@ -64,7 +54,7 @@ class PlatformScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::view('platform::partials.welcome'),
         ];
     }
 }
+
