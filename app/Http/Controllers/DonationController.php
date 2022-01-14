@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Mail\DonationCreated;
+use App\Mail\DonationRequested;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
 
@@ -66,7 +66,7 @@ class DonationController extends Controller
 
         $donation->save();
 
-        Mail::to($user['email'])->send(new DonationCreated($request));
+        Mail::to($user['email'])->send(new DonationRequested($request));
 
         return $donation;
     }

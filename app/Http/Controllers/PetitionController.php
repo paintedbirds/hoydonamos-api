@@ -53,8 +53,7 @@ class PetitionController extends Controller
         $petition->user()->associate($user);
 
         $petition->save();
-
-        Mail::to($user['email'])->send(new PetitionCreated($request));
+        Mail::to($user['email'])->send(new PetitionCreated($petition));
 
         return $petition;
     }

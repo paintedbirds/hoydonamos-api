@@ -7,17 +7,13 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class DonationCreated extends Mailable
+class DonationPublished extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Created vars to encapsulate data like subject, name, email etc
-     * @return void
-    */
     public $donationData;
 
-    public $subject = "Has creado una Donacion exitosamente";
+    public $subject = "Tu donación ha sido publicada";
     /**
      * Create a new message instance.
      *
@@ -35,6 +31,6 @@ class DonationCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.donationCreated');
+        return $this->view('emails.donationPublished');
     }
 }

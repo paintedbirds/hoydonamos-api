@@ -19,6 +19,10 @@ use Orchid\Screen\TD;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Fields\Select;
+use App\Mail\DonationPublished;
+use App\Mail\DonationRejected;
+use App\Mail\MailerAuth;
+use Illuminate\Support\Facades\Mail;
 
 class DonationEditScreen extends Screen
 {
@@ -114,7 +118,14 @@ class DonationEditScreen extends Screen
     public function UpdateState(Donation $donation, Request $request)
     {
         $donation->fill($request->get('donation'))->save();
-        Alert::info('Has actualizado correactamente el estado!');
+
+        if ($request['donation.state'] === "published") {
+            Mail::to($donation['user']->email)->send(new DonationPublished($donation));
+
+        } else if ($request['donation.state'] === "rejected"){
+            Mail::to($donation['user']->email)->send(new DonationRejected($donation));
+        }
+        Alert::info('Has actualizado correactamente el estado');
     }
 
     /**

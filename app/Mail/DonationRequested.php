@@ -7,19 +7,25 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailerAuth extends Mailable
+class DonationRequested extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
-    public $subject = "Che, hoy Donamos";
+
+    /**
+     * Created vars to encapsulate data like subject, name, email etc
+     * @return void
+    */
+    public $donationData;
+
+    public $subject = "Hemos recibido tu Donación";
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($donation)
     {
-        $this->data = $data;
+        $this->donationData = $donation;
     }
 
     /**
@@ -29,6 +35,6 @@ class MailerAuth extends Mailable
      */
     public function build()
     {
-        return $this->view('mails/bodyMailRegistration');
+        return $this->view('emails.donationRequested');
     }
 }
