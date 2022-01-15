@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegister;
 
 class AuthController extends Controller
 {
@@ -32,8 +33,8 @@ class AuthController extends Controller
             'user' => $user->where('email', $user->email)->first(),
             'token' => $token
         ];
-        $mail = new MailerAuth($user->name);
-        Mail::to($user->email)->send($mail);
+        Mail::to($fields['email'])->send(new UserRegister($fields));
+
         return response($response, 200);
     }
 

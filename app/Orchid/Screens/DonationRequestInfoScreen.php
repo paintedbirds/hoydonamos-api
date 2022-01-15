@@ -16,6 +16,9 @@ use Orchid\Screen\Sight;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Fields\Select;
+use App\Mail\DonationRequestedPublished;
+use App\Mail\MailerAuth;
+use Illuminate\Support\Facades\Mail;
 
 class DonationRequestInfoScreen extends Screen
 {
@@ -113,6 +116,11 @@ class DonationRequestInfoScreen extends Screen
      public function UpdateState(DonationRequest $donationRequest, Request $request)
     {
         $donationRequest->fill($request->get('donationRequest'))->save();
+        if ($request['donationRequest.state'] === "accepted") {
+            Mail::to($donationRequest['user']->email)
+            ->cc($donationRequest['donation']->user->email)
+            ->send(new DonationRequestedPublished($donationRequest));
+        }
         Alert::info('Has actualizado correactamente el estado!');
     }
 
