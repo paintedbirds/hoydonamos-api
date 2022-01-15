@@ -65,7 +65,7 @@ class AuthController extends Controller
 {
         $fields = $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email:rfc,dns  ',
+            'email' => 'required|email:rfc,dns',
             'phone' => 'nullable|string',
             'about_me' => 'nullable|string',
             'image' => 'nullable|image',
