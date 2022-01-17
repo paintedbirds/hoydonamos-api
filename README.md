@@ -6,7 +6,7 @@ API y Panel de Administración de `Che, ¿hoy donamos?`, realizado en [Laravel](
 
 ## Características
 
--   Utilizamos el paquete [BackPack](https://backpackforlaravel.com/docs) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
+-   Utilizamos el paquete [Orchid](https://orchid.software/) el cual nos facilita la creacion de un panel administrador donde podemos gestionar los registros de nuestra base de datos de forma sencilla. Ademas nos permite poder validar ciertos recursos facilitando asi el analisis de los mismos.
 
 -   Gestionamos la creacion de nuestra base de datos a travez de [migraciones de laravel](https://laravel.com/docs/8.x/migrations), estas estan ligadas a los modelos dentro de nuestra aplicacion.
 
