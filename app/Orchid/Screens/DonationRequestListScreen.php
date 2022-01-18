@@ -2,7 +2,7 @@
 namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\DonationRequestListLayout;
-use App\Models\donationRequest;
+use App\Models\DonationRequest;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
