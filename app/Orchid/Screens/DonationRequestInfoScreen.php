@@ -4,6 +4,7 @@ namespace App\Orchid\Screens;
 
 use App\Models\DonationRequest;
 use App\Models\User;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Relation;
@@ -94,11 +95,19 @@ class DonationRequestInfoScreen extends Screen
                     ->help('Cambia el estado de una donacion')
             ]),
             Layout::legend('donationRequest.user', [
+               Sight::make('image')->render(function (User $user) {
+                    return "<img src={$user['image']}
+                          class='mw-50 d-block img-fluid'>";
+                }),
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
                 Sight::make('name')->popover('Nombre del usuario'),
                 Sight::make('email')->popover('Correo electronico del usuario'),
             ]),
               Layout::legend('donationRequest.donation', [
+                Sight::make('image')->render(function (Donation $donation) {
+                    return "<img src={$donation['image']}
+                          class='mw-50 d-block img-fluid'>";
+                }),
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
                 Sight::make('name')->popover('Nombre del usuario'),
                 Sight::make('state')->popover('Nombre del usuario'),
