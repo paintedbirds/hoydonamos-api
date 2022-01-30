@@ -88,7 +88,7 @@ class DonationEditScreen extends Screen
              Layout::legend('donation', [
                 Sight::make('image')->render(function (Donation $donation) {
                     return "<img src={$donation['image']}
-                          alt='sample'
+                          alt='image-donation'
                           class='mw-50 d-block img-fluid'>";
                 }),
                 Sight::make('id')->popover('Numero identificativo de la donacion en el sistema'),
@@ -109,7 +109,7 @@ class DonationEditScreen extends Screen
             Layout::legend('donation.user', [
                 Sight::make('image')->render(function (User $user) {
                     return "<img src={$user['image']}
-                          alt='sample'
+                          alt='user-image'
                           class='mw-50 d-block img-fluid'>";
                 }),
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
