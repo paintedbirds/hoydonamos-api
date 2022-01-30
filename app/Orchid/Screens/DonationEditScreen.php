@@ -86,6 +86,11 @@ class DonationEditScreen extends Screen
     {
         return [
              Layout::legend('donation', [
+                Sight::make('image')->render(function (Donation $donation) {
+                    return "<img src={$donation['image']}
+                          alt='sample'
+                          class='mw-50 d-block img-fluid'>";
+                }),
                 Sight::make('id')->popover('Numero identificativo de la donacion en el sistema'),
                 Sight::make('name')->popover('Nombre de la donacion'),
                 Sight::make('description')->popover('Descripción de la donacion'),
@@ -102,6 +107,11 @@ class DonationEditScreen extends Screen
                     ->help('Cambia el estado de una donacion')
             ]),
             Layout::legend('donation.user', [
+                Sight::make('image')->render(function (User $user) {
+                    return "<img src={$user['image']}
+                          alt='sample'
+                          class='mw-50 d-block img-fluid'>";
+                }),
                 Sight::make('id')->popover('Numero identificativo del usuario que creo la donacion en el sistema'),
                 Sight::make('name')->popover('Nombre del usuario'),
                 Sight::make('email')->popover('Correo electronico del usuario'),
