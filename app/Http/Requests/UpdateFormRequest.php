@@ -42,7 +42,7 @@ class UpdateFormRequest extends FormRequest
             'phone.numeric' => 'Por favor indique un número',
             'about_me.string' => 'Por favor indique solo texto',
             'image.image' => 'No se pudo subir la imagen',
-            'image.max' => 'El maximo de la imagen es de 1Mb',
+            'image.max' => 'El máximo de la imagen es de 1Mb',
         ];
     }
 }
