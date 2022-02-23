@@ -27,6 +27,7 @@ class DonationRequestFormRequest extends FormRequest
             'reason' => 'required|string',
         ];
     }
+    
     public function messages()
     {
         return [
