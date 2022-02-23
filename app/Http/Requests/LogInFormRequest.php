@@ -33,7 +33,7 @@ class LogInFormRequest extends FormRequest
     {
         return [
             'email.required' => 'Este campo es requerido',
-            'password.required' => 'El campo es requerido',
+            'password.required' => 'Este campo es requerido',
         ];
     }
 }
