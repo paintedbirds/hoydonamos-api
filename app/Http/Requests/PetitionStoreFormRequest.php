@@ -28,11 +28,11 @@ class PetitionStoreFormRequest extends FormRequest
             'description' => 'required',
         ];
     }
+    
     public function messages()
     {
         return [
-            // 'message' => 'Algo ha salido mal',
-            'subject.required' => 'El campo del Titulo es requerido',
+            'subject.required' => 'El Titulo es requerido',
             'description.required' => 'La descripcion es requerida',
         ];
     }
