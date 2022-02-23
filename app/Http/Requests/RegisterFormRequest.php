@@ -37,12 +37,11 @@ class RegisterFormRequest extends FormRequest
     public function messages()
     {
         return [
-            // 'message' => 'Algo ha salido mal',
-            'email.unique' => 'Este Email ya existe',
-            'email.required' => 'El campo Email es requerido',
-            'email.email' => 'Ingrese un Email valido',
-            'name.required' => 'El campo es requerido',
-            'password.required' => 'El campo es requerido',
+            'email.unique' => 'Este email ya existe',
+            'email.required' => 'El email es requerido',
+            'email.email' => 'Ingrese un email valido',
+            'name.required' => 'El nombre es requerido',
+            'password.required' => 'La contraseña es requerida',
         ];
     }
     
