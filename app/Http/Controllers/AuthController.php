@@ -11,15 +11,15 @@ use Illuminate\Support\Facades\Hash;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserRegister;
+//Validation
+use App\Http\Requests\RegisterFormRequest;
+use App\Http\Requests\LogInFormRequest;
+use App\Http\Requests\UpdateFormRequest;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) {
-        $fields = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'password' => 'required|string'
-        ]);
+    public function register(RegisterFormRequest $request) {
+        $fields = $request->validated();
 
         $user = User::create([
             'name' => $fields['name'],
@@ -38,11 +38,8 @@ class AuthController extends Controller
         return response($response, 200);
     }
 
-    public function login(Request $request) {
-        $fields = $request->validate([
-            'email' => 'required|email:rfc,dns',
-            'password' => 'required|string'
-        ]);
+    public function login(LogInFormRequest $request) {
+        $fields = $request->validated();
         // Check email
         $user = User::where('email', $fields['email'])->first();
         // Check password
@@ -61,15 +58,9 @@ class AuthController extends Controller
 
         return response($response, 200);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateFormRequest $request, $id)
 {
-        $fields = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email:rfc,dns',
-            'phone' => 'nullable|string',
-            'about_me' => 'nullable|string',
-            'image' => 'nullable|image',
-        ]);
+        $fields = $request->validated();
         if ($request->image) {
             $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
             $fields['image'] = $response;

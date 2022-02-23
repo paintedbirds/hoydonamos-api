@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\DonationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+//Validation
+use App\Http\Requests\DonationRequestFormRequest;
+
 
 class DonationRequestController extends Controller
 {
@@ -34,11 +37,9 @@ class DonationRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store($id, DonationRequestFormRequest $request)
     {
-        $request->validate([
-            'reason' => 'required',
-            ]);
+        $request->validated();
 
         $user = Auth::user();
         $request = new DonationRequest([
