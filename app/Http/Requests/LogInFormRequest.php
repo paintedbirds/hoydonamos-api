@@ -32,7 +32,6 @@ class LogInFormRequest extends FormRequest
     public function messages()
     {
         return [
-            // 'message' => 'Algo ha salido mal',
             'email.required' => 'Este campo es requerido',
             'password.required' => 'El campo es requerido',
         ];
