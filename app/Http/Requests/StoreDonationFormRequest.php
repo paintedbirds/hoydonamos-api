@@ -33,11 +33,11 @@ class StoreDonationFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El campo de Titulo es requerido',
-            'description.required' => 'El campo de Descripción es requerido',
+            'name.required' => 'El Titulo es requerido',
+            'description.required' => 'La Descripcion es requerida',
             'image.required' => 'Una imagen es requerida',
             'image.image' => 'Se necesita una Imagen valida',
-            'image.max' => 'El máximo de la imagen es de 5Mb',
+            'image.max' => 'El tamaño maximo de la imagen puede ser de hasta 5Mb',
         ];
     }
 }
