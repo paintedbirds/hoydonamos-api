@@ -39,7 +39,7 @@ class UpdateFormRequest extends FormRequest
             'name.required' => 'El nombre es requerido',
             'name.string' => 'Indique un nombre valido',
             'phone.numeric' => 'Por favor indique un número',
-            'about_me.string' => 'Porfavor indique solo texto',
+            'about_me.string' => 'Por favor indique solo texto',
             'image.image' => 'No se pudo subir la imagen',
             'image.max' => 'El tamaño máximo de la imagen puede ser de hasta 1Mb',
         ];
