@@ -2,7 +2,7 @@
 namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PetitionListLayout;
-use App\Models\petition;
+use App\Models\Petition;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
