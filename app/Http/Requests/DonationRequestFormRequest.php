@@ -32,7 +32,7 @@ class DonationRequestFormRequest extends FormRequest
     {
         return [
             'reason.required' => 'La Razon es requerida',
-            'password.string' => 'Ingrese una Razon con caracteres validos',
+            'password.string' => 'Ingrese una razón con caracteres válidos',
         ];
     }
 }
