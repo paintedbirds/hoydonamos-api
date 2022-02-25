@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\PetitionCreated;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
+//Validation
+use App\Http\Requests\PetitionStoreFormRequest;
+
 class PetitionController extends Controller
 {
     /**
@@ -36,12 +39,9 @@ class PetitionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PetitionStoreFormRequest $request)
     {
-        $request->validate([
-            'subject' => 'required',
-            'description' => 'required',
-        ]);
+        $request->validated();
 
         $user = Auth::user();
 

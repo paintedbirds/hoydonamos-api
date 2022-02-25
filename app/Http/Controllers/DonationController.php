@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\DonationRequested;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
+//Validation
+use App\Http\Requests\StoreDonationFormRequest;
 
 class DonationController extends Controller
 {
@@ -42,13 +44,9 @@ class DonationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDonationFormRequest $request)
     {        
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required|mimes:jpeg,bmp,png',
-        ]);
+        $request->validated();
 
         $user = Auth::user();
 
