@@ -37,7 +37,7 @@ class StoreDonationFormRequest extends FormRequest
             'description.required' => 'La Descripcion es requerida',
             'image.required' => 'Una imagen es requerida',
             'image.image' => 'Se necesita una Imagen valida',
-            'image.max' => 'El tamaño maximo de la imagen puede ser de hasta 5Mb',
+            'image.max' => 'El tamaño máximo de la imagen puede ser de hasta 5Mb',
         ];
     }
 }
