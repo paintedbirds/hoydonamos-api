@@ -33,7 +33,7 @@ class StoreDonationFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El Titulo es requerido',
+            'name.required' => 'El titulo es requerido',
             'description.required' => 'La descripción es requerida',
             'image.required' => 'Una imagen es requerida',
             'image.image' => 'Se necesita una imagen valida',
