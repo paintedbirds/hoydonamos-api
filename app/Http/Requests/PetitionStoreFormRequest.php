@@ -32,7 +32,7 @@ class PetitionStoreFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'subject.required' => 'El Titulo es requerido',
+            'subject.required' => 'El titulo es requerido',
             'description.required' => 'La descripción es requerida',
         ];
     }
