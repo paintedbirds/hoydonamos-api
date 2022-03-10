@@ -127,8 +127,8 @@ class DonationEditScreen extends Screen
      */
     public function UpdateState(Donation $donation, Request $request)
     {
-        $donation->fill($request->get('donation'))->save();
-
+        $donation->update($request->get('donation'));
+        
         if ($request['donation.state'] === "published") {
             Mail::to($donation['user']->email)->send(new DonationPublished($donation));
 
