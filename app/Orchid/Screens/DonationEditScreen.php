@@ -101,7 +101,7 @@ class DonationEditScreen extends Screen
                 Select::make('donation.state')
                     ->options([
                         'pending' => 'PENDING',
-                        'rejected' => 'REJETCTED',
+                        'REJECTED' => 'REJECTED',
                         'published' => 'PUBLISHED',
                     ])->title('Estado')
                     ->help('Cambia el estado de una donacion')
@@ -127,8 +127,8 @@ class DonationEditScreen extends Screen
      */
     public function UpdateState(Donation $donation, Request $request)
     {
-        $donation->update($request->get('donation'));
-        
+        $donation->fill($request->get('donation'))->save();
+
         if ($request['donation.state'] === "published") {
             Mail::to($donation['user']->email)->send(new DonationPublished($donation));
 
