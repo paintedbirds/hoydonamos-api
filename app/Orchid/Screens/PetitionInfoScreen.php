@@ -79,7 +79,7 @@ class PetitionInfoScreen extends Screen
              Layout::legend('petition', [
                 Sight::make('id')->popover('Numero identificativo de la peticion en el sistema.'),
                 Sight::make('description')->popover('Descripción de la peticion.'),
-                Sight::make('state')->popover('Estado de la peticion en la donacion.'),
+                Sight::make('state')->popover('Estado de la peticion.'),
                 Sight::make('created_at')->popover('Fecha de creacion de la peticion.'),
             ]),
             Layout::legend('petition.user', [
