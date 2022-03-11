@@ -129,10 +129,10 @@ class DonationEditScreen extends Screen
     {
         $donation->fill($request->get('donation'))->save();
 
-        if ($request['donation.state'] === "published") {
+        if ($request['donation.state'] === "PUBLISHED") {
             Mail::to($donation['user']->email)->send(new DonationPublished($donation));
 
-        } else if ($request['donation.state'] === "rejected"){
+        } else if ($request['donation.state'] === "REJECTED"){
             Mail::to($donation['user']->email)->send(new DonationRejected($donation));
         }
         Alert::info('Has actualizado correactamente el estado');

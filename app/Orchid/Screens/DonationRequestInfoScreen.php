@@ -127,7 +127,7 @@ class DonationRequestInfoScreen extends Screen
      public function UpdateState(DonationRequest $donationRequest, Request $request)
     {
         $donationRequest->fill($request->get('donationRequest'))->save();
-        if ($request['donationRequest.state'] === "accepted") {
+        if ($request['donationRequest.state'] === "ACCEPTED") {
             Mail::to($donationRequest['user']->email)
             ->cc($donationRequest['donation']->user->email)
             ->send(new DonationRequestedPublished($donationRequest));
