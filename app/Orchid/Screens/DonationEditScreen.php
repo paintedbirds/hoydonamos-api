@@ -100,9 +100,9 @@ class DonationEditScreen extends Screen
             Layout::rows([
                 Select::make('donation.state')
                     ->options([
-                        'pending' => 'PENDING',
-                        'rejected' => 'REJETCTED',
-                        'published' => 'PUBLISHED',
+                        'PENDING' => 'PENDING',
+                        'REJECTED' => 'REJECTED',
+                        'PUBLISHED' => 'PUBLISHED',
                     ])->title('Estado')
                     ->help('Cambia el estado de una donacion')
             ]),
