@@ -88,9 +88,9 @@ class DonationRequestInfoScreen extends Screen
              Layout::rows([
                 Select::make('donationRequest.state')
                     ->options([
-                        'pending' => 'PENDING',
-                        'accepted' => 'ACCEPTED',
-                        'rejected' => 'REJETCTED',
+                        'PENDING' => 'PENDING',
+                        'ACCEPTED' => 'ACCEPTED',
+                        'REJECTED' => 'REJECTED',
                     ])->title('Estado')
                     ->help('Cambia el estado de una donacion')
             ]),

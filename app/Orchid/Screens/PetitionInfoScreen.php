@@ -58,6 +58,10 @@ class PetitionInfoScreen extends Screen
     public function commandBar(): array
     {
         return [
+            Button::make('Guardar cambios')
+                ->icon('pencil')
+                ->method('UpdateState'),
+                
             Button::make('Delete')
                 ->icon('trash')
                 ->method('remove'),
@@ -73,14 +77,23 @@ class PetitionInfoScreen extends Screen
     {
         return [
              Layout::legend('petition', [
-                Sight::make('id')->popover('Numero identificativo de la peticion en el sistema'),
-                Sight::make('description')->popover('Descripción de la peticion '),
-                Sight::make('created_at')->popover('Fecha de creacion de la peticion '),
+                Sight::make('id')->popover('Numero identificativo de la peticion en el sistema.'),
+                Sight::make('description')->popover('Descripción de la peticion.'),
+                Sight::make('state')->popover('Estado de la peticion en la donacion.'),
+                Sight::make('created_at')->popover('Fecha de creacion de la peticion.'),
             ]),
             Layout::legend('petition.user', [
-                Sight::make('id')->popover('Numero identificativo del usuario que creo la peticion en el sistema'),
-                Sight::make('name')->popover('Nombre del usuario'),
-                Sight::make('email')->popover('Correo electronico del usuario'),
+                Sight::make('id')->popover('Numero identificativo del usuario que creo la peticion en el sistema.'),
+                Sight::make('name')->popover('Nombre del usuario.'),
+                Sight::make('email')->popover('Correo electronico del usuario.'),
+            ]),
+            Layout::rows([
+                Select::make('petition.state')
+                    ->options([
+                        'PUBLISHED' => 'REJECTED',
+                        'REJECTED' => 'REJECTED',
+                    ])->title('Estado')
+                    ->help('Cambia el estado de una donacion')
             ]),
         ];
     }
@@ -98,4 +111,11 @@ class PetitionInfoScreen extends Screen
 
         return redirect()->route('platform.petition.list');
     }
+    public function UpdateState(DonationRequest $donationRequest, Request $request)
+    {
+        $donationRequest->fill($request->get('donationRequest'))->save();
+
+        Alert::info('Has actualizado correactamente el estado!');
+    }
+
 }
