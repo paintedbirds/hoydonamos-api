@@ -16,8 +16,8 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('name');
-            $table->string('description');
+            $table->text('name');
+            $table->text('description');
             $table->string('image');
             $table->enum('state', ['PENDING', 'PUBLISHED', 'REJECTED'])->default('PENDING');
             $table->softDeletes();

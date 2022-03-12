@@ -16,8 +16,8 @@ class CreatePetitionsTable extends Migration
         Schema::create('petitions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('subject');
-            $table->string('description');
+            $table->text('subject');
+            $table->text('description');
             $table->enum('state', ['PUBLISHED', 'REJECTED'])->default('PUBLISHED');
             $table->softDeletes('deleted_at');
             $table->timestamps();
