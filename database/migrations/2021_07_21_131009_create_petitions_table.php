@@ -18,7 +18,7 @@ class CreatePetitionsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->text('subject');
             $table->text('description');
-            $table->enum('state', ['PUBLISHED', 'REJECTED'])->default('PUBLISHED');
+            $table->enum('state', ['PUBLISHED', 'REJECTED, SASTIFIED'])->default('PUBLISHED');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });
