@@ -19,7 +19,7 @@ class CreateDonationsTable extends Migration
             $table->text('name');
             $table->text('description');
             $table->string('image');
-            $table->enum('state', ['PENDING', 'PUBLISHED', 'REJECTED'])->default('PENDING');
+            $table->enum('state', ['PENDING', 'PUBLISHED', 'REJECTED, DONATED'])->default('PENDING');
             $table->softDeletes();
             $table->timestamps();
         });
