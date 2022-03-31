@@ -22,6 +22,7 @@ class DonationController extends Controller
     {
         if(!is_null($search)){
             $donation = Donation::where('name', 'ilike','%'.$search.'%')
+            ->where('description', 'ilike','%'.$search.'%')
             ->where('state', 'PUBLISHED')
             ->paginate(10);
             return $donation;
