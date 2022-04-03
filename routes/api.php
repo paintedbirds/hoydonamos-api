@@ -29,6 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::get('/donation/{id}', [DonationController::class, 'show']);
     Route::post('/donations', [DonationController::class, 'store']);
     Route::post('/donations/{id}/requests', [DonationRequestController::class, 'store']);
+    Route::delete('/donation-request/{id}/', [DonationRequestController::class, 'destroy']);
     Route::put('/donations/{id}', [DonationController::class, 'update']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
     //petitions routes  
