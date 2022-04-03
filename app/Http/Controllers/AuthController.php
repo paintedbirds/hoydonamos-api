@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Petition;
 use App\Models\Donation;
+use App\Models\DonationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -79,7 +80,11 @@ class AuthController extends Controller
         $user = User::find($id);
         $donations = Donation::where('user_id', $user->id)->get();
         $petition = Petition::where('user_id', $user->id)->get();
-        return [ 'petitions' => $petition, 'donations' => $donations, 'user' => $user ];
+        $donationRequests = DonationRequest::where('donation_requests.user_id', $user->id)
+        ->join('donations', 'donations.id', '=', 'donation_requests.donation_id')
+        ->select('donation_requests.*', 'donations.image as donation_image'
+        )->get();
+        return [ 'petitions' => $petition, 'donations' => $donations, 'donationRequest' => $donationRequests, 'user' => $user ];
     }
 
     public function logout(Request $request) {
