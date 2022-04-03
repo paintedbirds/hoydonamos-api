@@ -63,7 +63,14 @@ class AuthController extends Controller
 {
         $fields = $request->validated();
         if ($request->image) {
-            $response = cloudinary()->upload($request->file('image')->getRealPath(), ['folder' => 'Usuarios'])->getSecurePath();
+            $response = cloudinary()->upload($request->file('image')
+            ->getRealPath(), ['folder' => 'Usuarios', 'transformation' => [
+                'width' => 250,
+                'height' => 250,
+	            'gravity' => 'faces',
+	            'crop' => 'fill'
+                ]])
+            ->getSecurePath();
             $fields['image'] = $response;
         }
         $user = User::find($id);
