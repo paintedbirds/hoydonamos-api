@@ -51,7 +51,11 @@ class DonationController extends Controller
         $user = Auth::user();
 
         $response = cloudinary()->upload($request->file('image')->getRealPath(), [
-            'folder' => 'Donaciones'
+            'folder' => 'Donaciones', 'transformation' => [
+                'width' => 380,
+                'height' => 380 ,
+	            'crop' => 'limit'
+            ]
         ])->getSecurePath();
 
         $donation = new Donation([
