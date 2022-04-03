@@ -14,11 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            DonationSeeder::class,
-            DonationRequestSeeder::class,
-            PetitionSeeder::class,
-        ]);
+        if (App::environment('production')) {
+            //nothing to load in prod.
+        } else {
+            $this->call([
+                UserSeeder::class,
+                DonationSeeder::class,
+                DonationRequestSeeder::class,
+                PetitionSeeder::class,
+            ]);  
+        };
     }
 }
