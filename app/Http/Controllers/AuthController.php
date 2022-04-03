@@ -80,7 +80,7 @@ class AuthController extends Controller
         ->join('donations', 'donations.id', '=', 'donation_requests.donation_id')
         ->select('donation_requests.*', 'donations.image as donation_image'
         )->get();
-        return [ 'petitions' => $petition, 'donations' => $donations, 'donationRequest' => $donationRequests, 'user' => $user ];
+        return [ 'petitions' => $petition, 'donations' => $donations, 'donationRequests' => $donationRequests, 'user' => $user ];
     }
 
     public function logout(Request $request) {
