@@ -91,8 +91,9 @@ class DonationRequestController extends Controller
      * @param  \App\Models\DonationRequest  $DonationRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DonationRequest $DonationRequest)
+    public function destroy($id)
     {
-        //
+        $donationRequest = DonationRequest::find($id);
+        return  $donationRequest->delete();
     }
 }
