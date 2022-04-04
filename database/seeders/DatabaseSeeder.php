@@ -14,9 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if (App::environment('production')) {
-            //nothing to load in prod.
-        } else {
+        if (!App::environment('production')) {
             $this->call([
                 UserSeeder::class,
                 DonationSeeder::class,
