@@ -34,6 +34,8 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::delete('/donations/{id}', [DonationController::class, 'destroy']);
     //petitions routes  
     Route::get('/petitions', [PetitionController::class, 'index']);
+    Route::get('/petitions/filter-month', [PetitionController::class, 'filterByMonth']);
+    Route::get('/petitions/filter-week', [PetitionController::class, 'filterByWeek']);
     Route::get('/petition/{id}', [PetitionController::class, 'show']);
     Route::post('/petitions', [PetitionController::class, 'store']);
     Route::delete('/petitions/{id}', [PetitionController::class, 'destroy']);

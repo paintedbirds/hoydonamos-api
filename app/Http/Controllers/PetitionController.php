@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\PetitionCreated;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 //Validation
 use App\Http\Requests\PetitionStoreFormRequest;
 
@@ -92,6 +93,25 @@ class PetitionController extends Controller
         $petition = Petition::find($id);
         $petition->update($request->all());
         return $petition;
+    }
+
+     /**
+     * Filter the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Petition  $petition
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByMonth()
+    {
+        $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
+        return $byMonth;
+    }
+    
+    public function filterByWeek()
+    {
+        $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        return $byweek;
     }
 
     /**
