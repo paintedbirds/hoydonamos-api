@@ -19,8 +19,20 @@ class PetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request = null)
     {
+        if (!is_null($request)) {
+            $time_period = $request->query("time_period");
+            if ($time_period === "week") {
+                $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            return $byweek;
+            } else if ($time_period === "month") {
+                $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
+                return $byMonth;
+            }else{
+                return back()->withErrors('We could not manage your filter');
+            }
+        }
         return Petition::where('state', 'PUBLISHED')->paginate(10);
     }
 
@@ -93,32 +105,6 @@ class PetitionController extends Controller
         $petition = Petition::find($id);
         $petition->update($request->all());
         return $petition;
-    }
-
-     /**
-     * Filter the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Petition  $petition
-     * @return \Illuminate\Http\Response
-     */
-    public function filter(Request $request)
-    {
-        $by = $request->query("by");
-        if ($by === "week") {
-            $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        return $byweek;
-        } else if ($by === "month") {
-            $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
-            return $byMonth;
-        }else{
-            return "Something went wrong filtering";
-        }
-    }
-    
-    public function filterByWeek()
-    {
-        
     }
 
     /**
