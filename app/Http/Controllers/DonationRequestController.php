@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DonationRequest;
+use App\Mail\DonationRequestManagmentCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //Validation
@@ -42,12 +43,19 @@ class DonationRequestController extends Controller
         $request->validated();
 
         $user = Auth::user();
+
         $request = new DonationRequest([
             "reason" => $request->get('reason'),
         ]);
+
         $request->user()->associate($user);
+
         $request->donation()->associate($id);
+
         $request->save();
+
+        Mail::to(env('MAIL_CONTENT_MANAGMENT'))->send(new DonationRequestManagmentCreated($request));
+
         return $request;
     }
 
