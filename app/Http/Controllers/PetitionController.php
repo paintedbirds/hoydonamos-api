@@ -102,16 +102,23 @@ class PetitionController extends Controller
      * @param  \App\Models\Petition  $petition
      * @return \Illuminate\Http\Response
      */
-    public function filterByMonth()
+    public function filter(Request $request)
     {
-        $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
-        return $byMonth;
+        $by = $request->query("by");
+        if ($by === "week") {
+            $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        return $byweek;
+        } else if ($by === "month") {
+            $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
+            return $byMonth;
+        }else{
+            return "Something went wrong filtering";
+        }
     }
     
     public function filterByWeek()
     {
-        $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        return $byweek;
+        
     }
 
     /**
