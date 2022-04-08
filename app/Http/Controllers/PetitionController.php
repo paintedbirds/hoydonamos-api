@@ -24,10 +24,14 @@ class PetitionController extends Controller
         if (!is_null($request)) {
             $time_period = $request->query("time_period");
             if ($time_period === "week") {
-                $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+                $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+                ->get()
+                ->paginate(10);
             return $byweek;
             } else if ($time_period === "month") {
-                $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)->get();
+                $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)
+                ->get()
+                ->paginate(10);
                 return $byMonth;
             }else{
                 return back()->withErrors('We could not manage your filter');
