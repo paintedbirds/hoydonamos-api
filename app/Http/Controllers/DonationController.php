@@ -6,6 +6,7 @@ use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\DonationRequested;
+use App\Mail\DonationManagmentCreated;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
 //Validation
@@ -71,7 +72,8 @@ class DonationController extends Controller
         $donation->save();
 
         Mail::to($user['email'])->send(new DonationRequested($request));
-
+        Mail::to(env('MAIL_CONTENT_MANAGMENT'))->send(new DonationManagmentCreated($request));
+        
         return $donation;
     }
 

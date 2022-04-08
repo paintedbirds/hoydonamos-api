@@ -6,6 +6,7 @@ use App\Models\Petition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\PetitionCreated;
+use App\Mail\PetitionManagmentCreated;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
 //Validation
@@ -53,7 +54,9 @@ class PetitionController extends Controller
         $petition->user()->associate($user);
 
         $petition->save();
+
         Mail::to($user['email'])->send(new PetitionCreated($petition));
+        Mail::to(env('MAIL_CONTENT_MANAGMENT'))->send(new PetitionManagmentCreated($petition));
 
         return $petition;
     }
