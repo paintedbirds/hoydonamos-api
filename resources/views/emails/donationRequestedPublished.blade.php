@@ -54,7 +54,7 @@ u+.emailify a,#MessageViewBody a,a[x-apple-data-detectors]{color:inherit!importa
 <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:middle;width:532px;">
 <![endif]--><div class="pc93-66197183098592 ogf m c " style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:93.66197183098592%;">
 <table border="0" cellpadding="0" cellspacing="0" style="background-color:transparent;border:none;vertical-align:middle;" width="100%"><tbody><tr><td align="left" class="i fw-1 " style="font-size:0;padding:0;padding-bottom:0;word-break:break-word;">
-<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;" class="fwm"><tbody><tr><td style="width:200px;" class="fwm"> <img alt="" height="auto" src="https://res.cloudinary.com/che-hoy-donamos/image/upload/v1641914260/Emails/e383f17006e67b6b76ad785e2fd94cfc_vdd70r.png" style="border:0;border-radius:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="200">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;" class="fwm"><tbody><tr><td style="width:200px;" class="fwm"> <img alt="logo" height="auto" src="https://res.cloudinary.com/che-hoy-donamos-uy/image/upload/v1649715359/Sistema/e383f17006e67b6b76ad785e2fd94cfc_vdd70r_bj0n5w.png" style="border:0;border-radius:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="200">
 </td></tr></tbody></table>
 </td></tr></tbody></table></div>
 <!--[if mso | IE]>
@@ -71,7 +71,7 @@ u+.emailify a,#MessageViewBody a,a[x-apple-data-detectors]{color:inherit!importa
 <table align="right" border="0" cellpadding="0" cellspacing="0"><tr><td>
 <![endif]-->
 <table align="right" border="0" cellpadding="0" cellspacing="0" style="float:none;display:inline-table;"><tbody><tr class="e "><td style="padding:0;vertical-align:middle;">
-<table border="0" cellpadding="0" cellspacing="0" style="border-radius:0;width:20px;"><tbody><tr><td style="font-size:0;height:20px;vertical-align:middle;width:20px;"> <a href="https://instagram.com/paintedbirds_uy?utm_medium=copy_link" target="_blank"> <img alt="Instagram" height="20" src="https://res.cloudinary.com/che-hoy-donamos/image/upload/v1641914260/Emails/1637703f7f3efadb25f5261706a9b499_zghypv.png" style="border-radius:0;display:block;" width="20"></a>
+<table border="0" cellpadding="0" cellspacing="0" style="border-radius:0;width:20px;"><tbody><tr><td style="font-size:0;height:20px;vertical-align:middle;width:20px;"> <a href="https://instagram.com/paintedbirds_uy?utm_medium=copy_link" target="_blank"> <img alt="Instagram" height="20" src="https://res.cloudinary.com/che-hoy-donamos-uy/image/upload/v1649715363/Sistema/1637703f7f3efadb25f5261706a9b499_zghypv_j7o3dh.png" style="border-radius:0;display:block;" width="20"></a>
 </td></tr></tbody></table>
 </td></tr></tbody></table>
 <!--[if mso | IE]>

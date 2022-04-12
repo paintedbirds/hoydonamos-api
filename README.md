@@ -79,7 +79,27 @@ composer install
 composer update
 ```
 
--   Crear un archivo `.env` basandote en el `.env.example`
+-   Crear un archivo `.env` basandote en el `.env.example` y llenar estas variables de entorno.
+
+```bash
+CLOUDINARY_URL=
+...
+CLOUDINARY_UPLOAD_PRESET=
+...
+MAIL_HOST=
+...
+MAIL_PORT=
+...
+MAIL_USERNAME=
+...
+MAIL_PASSWORD=
+...
+MAIL_FROM_ADDRESS=
+...
+MAIL_FROM_NAME=
+...
+MAIL_CONTENT_MANAGMENT=
+```
 
 -   Correr las migraciones y seeders de nuestra base de datos
 
