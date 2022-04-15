@@ -9,6 +9,7 @@ use App\Mail\PetitionCreated;
 use App\Mail\PetitionManagmentCreated;
 use App\Mail\MailerAuth;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 //Validation
 use App\Http\Requests\PetitionStoreFormRequest;
 
@@ -19,8 +20,24 @@ class PetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request = null)
     {
+        if (!is_null($request)) {
+            $time_period = $request->query("time_period");
+            if ($time_period === "week") {
+                $byweek = Petition::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+                ->get()
+                ->paginate(10);
+            return $byweek;
+            } else if ($time_period === "month") {
+                $byMonth = Petition::whereMonth('created_at', Carbon::now()->month)
+                ->get()
+                ->paginate(10);
+                return $byMonth;
+            }else{
+                return back()->withErrors('We could not manage your filter');
+            }
+        }
         return Petition::where('state', 'PUBLISHED')->paginate(10);
     }
 
